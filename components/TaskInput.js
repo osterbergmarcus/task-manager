@@ -13,9 +13,12 @@ class TaskInput extends Component {
   }
   
   _handleSubmit(event){
+    if(!this.state.inputText){
+      console.log("add input text")
+    } else {
     this.props.actions.addTask(this.state.inputText, this.refs.priority.value)
     this.state.inputText = ''
-    
+    }
   }
   
   render(){
