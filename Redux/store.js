@@ -1,13 +1,15 @@
 import { applyMiddleware, compose, createStore } from 'redux'
 import logger                                    from 'redux-logger'
 import rootReducer                               from './reducers'
+import thunk                                     from 'redux-thunk'
 
-//Middleware
-let appCreateStore = compose(
-  applyMiddleware(logger())
+//Configure middleware with logger and timetraveler debbuger tool for chrome
+let finalCreateStore = compose(
+  applyMiddleware(logger(), thunk),
+   window.devToolsExtension ? window.devToolsExtension() : f => f
 )(createStore)
 
 //configure and creating store
 export default function configureStore(initialState) {
-  return appCreateStore(rootReducer, initialState)  
+  return finalCreateStore(rootReducer, initialState)  
 }
