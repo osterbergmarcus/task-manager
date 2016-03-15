@@ -1,4 +1,4 @@
-import { ADD_TASK, TOGGLE_TASK } from '../actions'
+import { ADD_TASK, TOGGLE_TASK } from '../constants'
 
 
 //Helper function

@@ -1,19 +1,16 @@
 import React, { Component }   from 'react'
-import TaskInput              from './TaskInput'
-import TaskList               from './TaskList'
-import Counter                from './Counter'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { actions }            from '../redux/actions'
+import { actions }            from '../redux/actions/userActions'
+import Nav                    from '../components/Nav'
 
-
+//Rendering Navbar and children containers of /route
 class App extends Component {
   render() {
     return (
       <div>
-        <Counter tasks={this.props.tasks}/>
-        <TaskInput actions={this.props.actions}/>
-        <TaskList actions={this.props.actions} tasks={this.props.tasks}/>
+        <Nav />
+          {this.props.children}
       </div>
     )
   }

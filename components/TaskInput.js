@@ -23,6 +23,7 @@ class TaskInput extends Component {
   
   render(){
     return (
+      <div className="container">
       <div>
         <input 
         type="text"
@@ -30,10 +31,13 @@ class TaskInput extends Component {
         value={this.state.inputText}
         onChange={this._handleChange.bind(this)}
         />
-        <select ref="priority">
-        <option value="Low">Low</option>
-        <option value="High">High</option>
-        </select>
+        </div>
+        <div>
+          <select className="browser-default" ref="priority">
+            <option value="Low">Low</option>
+            <option value="High">High</option>
+          </select>
+        </div>  
         <button onClick={this._handleSubmit.bind(this)}>Submit</button>
       </div>
     )

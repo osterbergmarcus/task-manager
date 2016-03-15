@@ -1,9 +1,4 @@
-//Define and export actions
-export const ADD_TASK = 'ADD_TASK'
-export const TOGGLE_TASK = 'TOGGLE_TASK'
-export const DELETE_TASK = 'DELETE_TASK'
-export const INCREMENT_COUNT = 'INCREMENT_COUNT'
-
+import { ADD_TASK, TOGGLE_TASK } from '../constants'
 
 //Define and export action creators
 export const actions = {
