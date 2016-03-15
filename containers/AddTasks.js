@@ -16,9 +16,9 @@ class AddTasks extends Component {
   }
 }
 
-//Using connector to connect the app component to the provided store
+//Using connector to connect the component to the provided store
 //connect() maps the state and dispatch action
-//from the Provider to props for App component
+//passing down from the provider as props to the child components 
 function mapStateToProps(state) {
   return state
 }
