@@ -2,14 +2,21 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import logger                                    from 'redux-logger'
 import rootReducer                               from './reducers'
 import thunk                                     from 'redux-thunk'
+import initialState                              from './initialState'
 
-//Configure middleware with logger and timetraveler debbuger tool for chrome
-let finalCreateStore = compose(
-  applyMiddleware(logger(), thunk),
+//configure logger
+const loggerMiddleware = logger({
+  level: 'info',
+  collapsed: true,
+});
+
+//configure middleWalre with thunk, logger and time travel debugger tool for chrome
+const finalCreateStore = compose(
+  applyMiddleware(thunk, loggerMiddleware),
    window.devToolsExtension ? window.devToolsExtension() : f => f
-)(createStore)
+);
 
-//configure and creating store
-export default function configureStore(initialState) {
-  return finalCreateStore(rootReducer, initialState)  
-}
+//create store
+const store = createStore(rootReducer, initialState, finalCreateStore);
+
+export default store

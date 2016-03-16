@@ -1,19 +1,22 @@
 import React, { Component }   from 'react'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { FIREBASE }           from '../redux/constants'
 import Counter                from '../components/Counter'
 import TaskList               from '../components/TaskList'
 import * as actions           from '../redux/actions/userActions'
-
+import Firebase               from 'firebase'
 
 class Featured extends Component {
-  // componentDidMount(){
-  //   this.props.fetchTasks()
-  // }
+  componentDidMount(){
+    const tasks = new Firebase(FIREBASE).child('tasks')
+    this.props.fetchTasks(tasks)
+  }
   
   render() {
     return (
       <div>
+        <h2>{this.props.loading ? 'Loading' : 'DONE LOADING'}</h2>
         <div>Not signed in</div>
         <Counter tasks={this.props.tasks}/>
         <TaskList toggleTask={this.props.toggleTask} tasks={this.props.tasks}/>
@@ -32,7 +35,8 @@ function mapStateToProps(state) {
 //Wrapping actions with the dispatcher
 function mapDispatchToProps(dispatch){
   return {
-    toggleTask: bindActionCreators(actions.toggleTask, dispatch)
+    toggleTask: bindActionCreators(actions.toggleTask, dispatch),
+    fetchTasks: bindActionCreators(actions.fetchTasks, dispatch)
   }
 }
 

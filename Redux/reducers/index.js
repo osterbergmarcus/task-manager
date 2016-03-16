@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 import taskReducer         from './taskReducer'
-import countReducer         from './countReducer'
+import getReducer          from './getReducer'
 
 //combine reducers.. Map state propertis to individual reducers
 const rootReducer = combineReducers({
   tasks: taskReducer,
-  count: countReducer
+  loading: getReducer
 })
 
 export default rootReducer

@@ -1,5 +1,6 @@
 let initialState = {
-  tasks: []
+  tasks: [],
+  loading: false
 }
 
 export default initialState
