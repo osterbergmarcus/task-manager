@@ -2,7 +2,7 @@ import React, { Component }   from 'react'
 import TaskInput              from '../components/TaskInput'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { actions }            from '../redux/actions/userActions'
+import * as actions           from '../redux/actions/userActions'
 
 
 class AddTasks extends Component {
@@ -10,7 +10,7 @@ class AddTasks extends Component {
     return (
       <div>
         <div>Add Tasks</div>
-        <TaskInput actions={this.props.actions}/>
+        <TaskInput addTask={this.props.addTask}/>
       </div>
     )
   }
@@ -26,7 +26,7 @@ function mapStateToProps(state) {
 //Wrapping actions with the dispatcher
 function mapDispatchToProps(dispatch){
   return {
-    actions: bindActionCreators(actions, dispatch)
+    addTask: bindActionCreators(actions.addTask, dispatch)
   }
 }
 

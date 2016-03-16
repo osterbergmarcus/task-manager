@@ -7,6 +7,17 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import App                                        from '../containers/App'
 import Featured                                   from '../containers/Featured'
 import AddTasks                                   from '../containers/AddTasks'
+import Firebase                                   from 'firebase'
+
+//create a root reference to firebase
+const fireBaseRef = new Firebase('https://bayoga.firebaseio.com/')
+
+//listen to values from firebase collection
+const classes = fireBaseRef.child('classes/test')
+
+classes.on('value', (snapshot) => {
+  console.log(snapshot.val())
+})
 
 //set up store
 let store = configureStore(initialState)

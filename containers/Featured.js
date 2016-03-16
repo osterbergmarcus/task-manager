@@ -1,18 +1,22 @@
 import React, { Component }   from 'react'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { actions }            from '../redux/actions/userActions'
 import Counter                from '../components/Counter'
 import TaskList               from '../components/TaskList'
+import * as actions           from '../redux/actions/userActions'
 
 
 class Featured extends Component {
+  // componentDidMount(){
+  //   this.props.fetchTasks()
+  // }
+  
   render() {
     return (
       <div>
         <div>Not signed in</div>
         <Counter tasks={this.props.tasks}/>
-        <TaskList actions={this.props.actions} tasks={this.props.tasks}/>
+        <TaskList toggleTask={this.props.toggleTask} tasks={this.props.tasks}/>
       </div>
     )
   }
@@ -28,7 +32,7 @@ function mapStateToProps(state) {
 //Wrapping actions with the dispatcher
 function mapDispatchToProps(dispatch){
   return {
-    actions: bindActionCreators(actions, dispatch)
+    toggleTask: bindActionCreators(actions.toggleTask, dispatch)
   }
 }
 
