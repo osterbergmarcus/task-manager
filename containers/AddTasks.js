@@ -2,13 +2,14 @@ import React, { Component }   from 'react'
 import TaskInput              from '../components/TaskInput'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as actions           from '../redux/actions/userActions'
+import * as actions          from '../redux/actions/userActions'
 
 
 class AddTasks extends Component {
   render() {
     return (
       <div>
+        <h2>User Message: {this.props.message}</h2>
         <div>Add Tasks</div>
         <TaskInput addTask={this.props.addTask}/>
       </div>
@@ -20,7 +21,9 @@ class AddTasks extends Component {
 //connect() maps the state and dispatch action
 //passing down from the provider as props to the child components 
 function mapStateToProps(state) {
-  return state
+   return {
+    message: state.userfeedback.message
+  }
 }
 
 //Wrapping actions with the dispatcher

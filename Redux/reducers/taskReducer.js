@@ -9,19 +9,20 @@ function getId(tasks) {
 }
 
 //Define export reducer, slicing out tasks property from state.
-const taskReducer = (tasks = [], action) => {
+const taskReducer = (tasks = {}, action) => {
   switch(action.type) {
-    case ADD_TASK:
-      return  [{
-        text: action.text,
-        priority: action.priority,
-        id: getId(tasks)
-        }, ...tasks]
+    case 'AWAIT_NEW_TASK':
+			return Object.assign({}, tasks, {submittingnew: true})
+      
+    case 'RECEIVE_NEW_TASK_RESPONSE':
+      return Object.assign({}, tasks, {submittingnew: false})
+      
     case TOGGLE_TASK:
       return tasks.map(task => {
         return task.id === action.id ?
           Object.assign({}, task, {priority: action.priority}) : task
       })
+      
     default:
       return tasks;
   }

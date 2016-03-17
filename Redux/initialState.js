@@ -1,6 +1,14 @@
 let initialState = {
-  tasks: [],
-  loading: false
+  tasks: {
+    data: {},
+    loading: false,
+    hasreceiveddata: false,
+    submittingnew: false
+  },
+  userfeedback: {
+    loading: false,
+    message: ''
+  }
 }
 
 export default initialState

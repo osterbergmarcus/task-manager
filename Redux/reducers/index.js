@@ -5,7 +5,7 @@ import getReducer          from './getReducer'
 //combine reducers.. Map state propertis to individual reducers
 const rootReducer = combineReducers({
   tasks: taskReducer,
-  loading: getReducer
+  userfeedback: getReducer
 })
 
 export default rootReducer

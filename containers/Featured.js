@@ -9,8 +9,16 @@ import Firebase               from 'firebase'
 
 class Featured extends Component {
   componentDidMount(){
-    const tasks = new Firebase(FIREBASE).child('tasks')
+    const tasks = new Firebase(FIREBASE).child('tasks/data')
     this.props.fetchTasks(tasks)
+    
+    tasks.on('value', (snapshot) => {
+      snapshot.forEach((data) => {
+      console.log(data.val().text)
+      console.log(data.key())
+      })
+      this.props.updateTasks(snapshot.val())
+    })
   }
   
   render() {
@@ -29,14 +37,17 @@ class Featured extends Component {
 //connect() maps the state and dispatch action
 //passing down from the provider as props to the child components 
 function mapStateToProps(state) {
-  return state
+  return {
+    loading: state.userfeedback.loading
+  }
 }
 
 //Wrapping actions with the dispatcher
 function mapDispatchToProps(dispatch){
   return {
-    toggleTask: bindActionCreators(actions.toggleTask, dispatch),
-    fetchTasks: bindActionCreators(actions.fetchTasks, dispatch)
+    toggleTask:    bindActionCreators(actions.toggleTask, dispatch),
+    fetchTasks:    bindActionCreators(actions.fetchTasks, dispatch),
+    updateTasks:   bindActionCreators(actions.updateTasks, dispatch)
   }
 }
 
