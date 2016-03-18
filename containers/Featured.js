@@ -25,7 +25,7 @@ class Featured extends Component {
         <h2>{this.props.loading ? 'Loading' : 'DONE LOADING'}</h2>
         <div>Not signed in</div>
         <Counter tasks={this.props.tasks}/>
-        <TaskList toggleTask={this.props.toggleTask} tasks={this.props.tasks}/>
+        <TaskList tasks={this.props.tasks}/>
       </div>
     )
   }
@@ -44,7 +44,6 @@ function mapStateToProps(state) {
 //Wrapping actions with the dispatcher
 function mapDispatchToProps(dispatch){
   return {
-    toggleTask:    bindActionCreators(actions.toggleTask, dispatch),
     fetchTasks:    bindActionCreators(actions.fetchTasks, dispatch),
     updateTasks:   bindActionCreators(actions.updateTasks, dispatch)
   }
