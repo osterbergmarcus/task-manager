@@ -2,11 +2,6 @@ import { ADD_TASK, TOGGLE_TASK } from '../constants'
 
 
 //Helper function
-function getId(tasks) {
-  return tasks.reduce((maxId, task) => {
-    return Math.max(task.id, maxId)
-  }, -1) + 1
-}
 
 //Define export reducer, slicing out tasks property from state.
 const taskReducer = (tasks = {}, action) => {
@@ -16,13 +11,9 @@ const taskReducer = (tasks = {}, action) => {
       
     case 'RECEIVE_NEW_TASK_RESPONSE':
       return Object.assign({}, tasks, {submittingnew: false})
-      
-    case TOGGLE_TASK:
-      return tasks.map(task => {
-        return task.id === action.id ?
-          Object.assign({}, task, {priority: action.priority}) : task
-      })
-      
+    case 'UPDATE_TASKS':
+      return Object.assign({}, tasks, {data: action.data})
+ 
     default:
       return tasks;
   }

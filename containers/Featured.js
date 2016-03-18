@@ -7,20 +7,18 @@ import TaskList               from '../components/TaskList'
 import * as actions           from '../redux/actions/userActions'
 import Firebase               from 'firebase'
 
+//firebase ref
+const tasks = new Firebase(FIREBASE).child('tasks/data')
+
 class Featured extends Component {
   componentDidMount(){
-    const tasks = new Firebase(FIREBASE).child('tasks/data')
     this.props.fetchTasks(tasks)
     
     tasks.on('value', (snapshot) => {
-      snapshot.forEach((data) => {
-      console.log(data.val().text)
-      console.log(data.key())
-      })
-      this.props.updateTasks(snapshot.val())
+      this.props.updateTasks(snapshot)
     })
   }
-  
+
   render() {
     return (
       <div>
@@ -38,7 +36,8 @@ class Featured extends Component {
 //passing down from the provider as props to the child components 
 function mapStateToProps(state) {
   return {
-    loading: state.userfeedback.loading
+    loading: state.userfeedback.loading,
+    tasks: state.tasks.data
   }
 }
 

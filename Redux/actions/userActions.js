@@ -18,22 +18,6 @@ export function addTask(text, priority){
     }
 }
 
-export function toggleTask(id, priority){
-    if(priority === 'Low') {
-    return {
-      type: TOGGLE_TASK,
-      id: id,
-      priority: 'High'
-    }
-   } else {
-    return {
-     type: TOGGLE_TASK,
-     id: id,
-     priority: 'Low'
-    }
-   }  
-}
-
 //server request
 export function fetchTasks(fireBaseRef) {
   return (dispatch) => {
@@ -41,12 +25,22 @@ export function fetchTasks(fireBaseRef) {
     
     fireBaseRef.once('value', (snapshot) => {
       const tasks = snapshot.val()
-      console.log(tasks)
       dispatch({type: 'FETCH_TASKS', fetching: false})
     })
   }
 }
 
 export function updateTasks(fireBaseRef) {
-  return ({type: 'UPDATE_TASKS', text: fireBaseRef})
+  let tasks = []
+  fireBaseRef.forEach((child) => {
+    tasks.push({
+    text: child.val().text,
+    priority: child.val().priority,
+    id: child.key()
+  })
+  })
+  return {
+   type: 'UPDATE_TASKS',
+   data: tasks
+  }
 }
