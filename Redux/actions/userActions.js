@@ -1,14 +1,14 @@
 import Firebase                                         from 'firebase'
 import { 
   ADD_TASK,
-  TOGGLE_TASK,
   FETCH_TASKS, 
   FIREBASE,
   AWAIT_NEW_TASK,
   RECEIVE_NEW_TASK_RESPONSE,
   DISPLAY_ERROR,
   DISPLAY_MESSAGE,
-  UPDATE_TASKS 
+  UPDATE_TASKS,
+  REMOVE_TASK
   } from '../constants'
   
 const tasksRef = new Firebase(FIREBASE).child('tasks/data')
@@ -21,9 +21,9 @@ export function addTask(text, priority){
       tasksRef.push({text, priority}, (error) => {
         dispatch({type: RECEIVE_NEW_TASK_RESPONSE})
          if (error){
-          dispatch({type: DISPLAY_ERROR, message: "Submission failed! " + error})
+          dispatch({type: DISPLAY_ERROR, message: "Submission failed" + error})
          } else {
-          dispatch({type: DISPLAY_MESSAGE, message: "Submission successfully saved!"})
+          dispatch({type: DISPLAY_MESSAGE, message: "Task succesfully saved"})
          }
       })
     }
@@ -31,14 +31,14 @@ export function addTask(text, priority){
 
 export function removeTask(fireBaseRef){
   return (dispatch) => {
-    dispatch({type: 'REMOVE_TASK', removing: true})
+    dispatch({type: REMOVE_TASK, removing: true})
     let tempTaskRef = new Firebase(FIREBASE).child('tasks/data/' + fireBaseRef)
     
     tempTaskRef.remove((error) => {
       if(error) {
         dispatch({DISPLAY_ERROR, message: "Failed to delete task"})
       } else {
-        dispatch({type: DISPLAY_MESSAGE, message: "Task deleted"})
+        dispatch({type: DISPLAY_MESSAGE, message: "Task succesfully deleted"})
       }
     })
   }

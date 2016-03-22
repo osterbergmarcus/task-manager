@@ -6,8 +6,10 @@ class Feedback extends Component {
   render(){
     return (
       <div className="row">
-        <div className="card-panel teal lighten-2 col s4">
-          <h4>{this.props.message}</h4>
+        <div className="col s4">
+          <blockquote>
+            {this.props.message}
+          </blockquote>
         </div>
       </div>
     )
