@@ -9,7 +9,6 @@ class AddTasks extends Component {
   render() {
     return (
       <div>
-        <h2>User Message: {this.props.message}</h2>
         <div>Add Tasks</div>
         <TaskInput addTask={this.props.addTask}/>
       </div>
