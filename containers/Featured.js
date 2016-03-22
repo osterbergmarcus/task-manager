@@ -25,7 +25,7 @@ class Featured extends Component {
         <h2>{this.props.loading ? 'Loading' : 'DONE LOADING'}</h2>
         <div>Not signed in</div>
         <Counter tasks={this.props.tasks}/>
-        <TaskList tasks={this.props.tasks}/>
+        <TaskList tasks={this.props.tasks} removeTask={this.props.removeTask}/>
       </div>
     )
   }
@@ -45,7 +45,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch){
   return {
     fetchTasks:    bindActionCreators(actions.fetchTasks, dispatch),
-    updateTasks:   bindActionCreators(actions.updateTasks, dispatch)
+    updateTasks:   bindActionCreators(actions.updateTasks, dispatch),
+    removeTask:   bindActionCreators(actions.removeTask, dispatch)
   }
 }
 

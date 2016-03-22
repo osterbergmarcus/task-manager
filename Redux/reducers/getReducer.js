@@ -1,4 +1,4 @@
-import { FETCH_TASKS } from '../constants'
+import { FETCH_TASKS, DISPLAY_ERROR, DISPLAY_MESSAGE } from '../constants'
 
 //Define export reducer, slicing out user property from state.
 const getReducer = (userfeedback = {loading: false, message: ''}, action) => {
@@ -10,10 +10,10 @@ const getReducer = (userfeedback = {loading: false, message: ''}, action) => {
         return Object.assign({}, userfeedback, {loading: false})
       }
       
-    case 'DISPLAY_ERROR':
+    case DISPLAY_ERROR:
       return Object.assign({}, userfeedback, {message: action.message})
       
-    case 'DISPLAY_MESSAGE':
+    case DISPLAY_MESSAGE:
       return Object.assign({}, userfeedback, {message: action.message})
       
     default:

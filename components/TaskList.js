@@ -8,14 +8,14 @@ class TaskList extends Component {
       <ul className="high-priority">
       {this.props.tasks.map(task => {
         if(task.priority === 'High') {
-          return (<TaskItem key={task.id} task={task} toggleTask={this.props.toggleTask}/>)
+          return (<TaskItem key={task.id} task={task} removeTask={this.props.removeTask}/>)
         }
       })}   
       </ul>
       <ul className="low-priority">
       {this.props.tasks.map(task => {
         if(task.priority === 'Low') {
-          return (<TaskItem key={task.id} task={task} toggleTask={this.props.toggleTask}/>)
+          return (<TaskItem key={task.id} task={task} removeTask={this.props.removeTask}/>)
         }
       })}   
       </ul>
