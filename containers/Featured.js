@@ -31,9 +31,7 @@ class Featured extends Component {
   }
 }
 
-//Using connector to connect the component to the provided store
-//connect() maps the state and dispatch action
-//passing down from the provider as props to the child components 
+//passing down state from the provider as props to the child components
 function mapStateToProps(state) {
   return {
     loading: state.userfeedback.loading,
@@ -44,10 +42,12 @@ function mapStateToProps(state) {
 //Wrapping actions with the dispatcher
 function mapDispatchToProps(dispatch){
   return {
-    fetchTasks:    bindActionCreators(actions.fetchTasks, dispatch),
-    updateTasks:   bindActionCreators(actions.updateTasks, dispatch),
+    fetchTasks:   bindActionCreators(actions.fetchTasks, dispatch),
+    updateTasks:  bindActionCreators(actions.updateTasks, dispatch),
     removeTask:   bindActionCreators(actions.removeTask, dispatch)
   }
 }
 
+//Using connector to connect the component to the provided store
+//maps the state and dispatch actions
 export default connect(mapStateToProps, mapDispatchToProps)(Featured)

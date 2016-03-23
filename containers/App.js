@@ -3,16 +3,14 @@ import Nav                    from '../components/Nav'
 import FeedBack               from '../components/Feedback'
 
 //Rendering Navbar and children containers of /route
-class App extends Component {
-  render() {
+const App = ({ children }) => {
     return (
       <div>
         <Nav />
         <FeedBack />
-          {this.props.children}
+          {children}
       </div>
     )
-  }
 }
 
 export default App

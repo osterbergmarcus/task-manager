@@ -1,4 +1,4 @@
-import Firebase                                         from 'firebase'
+import Firebase from 'firebase'
 import { 
   ADD_TASK,
   FETCH_TASKS, 
@@ -9,7 +9,7 @@ import {
   DISPLAY_MESSAGE,
   UPDATE_TASKS,
   REMOVE_TASK
-  } from '../constants'
+ } from '../constants'
   
 const tasksRef = new Firebase(FIREBASE).child('tasks/data')
 

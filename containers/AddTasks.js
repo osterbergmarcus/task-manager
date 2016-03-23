@@ -5,23 +5,19 @@ import { bindActionCreators } from 'redux'
 import * as actions          from '../redux/actions/userActions'
 
 
-class AddTasks extends Component {
-  render() {
-    return (
-      <div>
-        <div>Add Tasks</div>
-        <TaskInput addTask={this.props.addTask}/>
-      </div>
-    )
-  }
+const AddTasks = ({ addTask }) => {
+  return (
+    <div>
+      <div>Add Tasks</div>
+      <TaskInput addTask={addTask}/>
+    </div>
+  )
 }
 
-//Using connector to connect the component to the provided store
-//connect() maps the state and dispatch action
-//passing down from the provider as props to the child components 
+//passing down state from the provider as props to the child components 
 function mapStateToProps(state) {
    return {
-    message: state.userfeedback.message
+    state
   }
 }
 
@@ -32,4 +28,6 @@ function mapDispatchToProps(dispatch){
   }
 }
 
+//Using connector to connect the component to the provided store
+//maps the state and dispatch actions
 export default connect(mapStateToProps, mapDispatchToProps)(AddTasks)

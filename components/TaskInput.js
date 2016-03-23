@@ -16,8 +16,8 @@ class TaskInput extends Component {
     if(!this.state.inputText){
       console.log("add input text")
     } else {
-    this.props.addTask(this.state.inputText, this.refs.priority.value)
-    this.state.inputText = ''
+      this.props.addTask(this.state.inputText, this.refs.priority.value)
+      this.state.inputText = ''
     }
   }
   
