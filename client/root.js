@@ -1,13 +1,11 @@
 import React                                      from 'react'
 import { render }                                 from 'react-dom'
 import { Provider }                               from 'react-redux'
-import initialState                               from '../redux/initialState'
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
-import App                                        from '../containers/App'
-import Featured                                   from '../containers/Featured'
-import AddTasks                                   from '../containers/AddTasks'
 import Firebase                                   from 'firebase'
-import store                                      from '../redux/store'
+import initialState                               from '../src/redux/initialState'
+import store                                      from '../src/redux/store/store'
+import { App, Featured, AddTasks }                from '../src/containers'
 
 //render the main component and mount to the root DOM elements
 //Subscribe and make store available to all nested components using Provider
@@ -22,5 +20,5 @@ render(
        </Route>
     </Router>
   </Provider>,
-  document.getElementById('app')
+  document.getElementById('react-mount')
 )

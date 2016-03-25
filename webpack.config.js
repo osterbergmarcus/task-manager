@@ -4,11 +4,11 @@ module.exports = {
   devtool: 'inline-source-map',
   entry: [
     'webpack-hot-middleware/client',
-    './client/client.js',
+    './client/root.js',
     './client/styles.css'
   ],
   output: {
-    path: require("path").resolve("./dist"),
+    path: require("path").resolve("./static/dist"),
     filename: 'bundle.js',
     publicPath: '/'
   },
