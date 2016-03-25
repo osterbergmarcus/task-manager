@@ -2,10 +2,10 @@ import React, { Component }   from 'react'
 import TaskInput              from '../components/TaskInput'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as actions          from '../redux/actions/userActions'
+import { addTask }            from '../redux/actions/userActions'
 
 
-const AddTasks = ({ addTask }) => {
+const AddTasks = ({addTask}) => {
   return (
     <div>
       <div>Add Tasks</div>
@@ -14,20 +14,15 @@ const AddTasks = ({ addTask }) => {
   )
 }
 
-//passing down state from the provider as props to the child components 
-function mapStateToProps(state) {
-   return {
-    state
-  }
-}
+//Making state avaivable as props
+const mapStateToProps = (state) => state
 
-//Wrapping actions with the dispatcher
-function mapDispatchToProps(dispatch){
+//Wrapping action creators into the dispatcher and making actions avaivable as props
+const mapDispatchToProps = (dispatch) => {
   return {
-    addTask: bindActionCreators(actions.addTask, dispatch)
+    addTask: bindActionCreators(addTask, dispatch)
   }
 }
 
-//Using connector to connect the component to the provided store
-//maps the state and dispatch actions
+//exports component connected to redux
 export default connect(mapStateToProps, mapDispatchToProps)(AddTasks)

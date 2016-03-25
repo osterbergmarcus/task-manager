@@ -2,7 +2,6 @@ import React, { Component }   from 'react'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { FIREBASE }           from '../redux/constants'
-import Counter                from '../components/Counter'
 import TaskList               from '../components/TaskList'
 import * as actions           from '../redux/actions/userActions'
 import Firebase               from 'firebase'
@@ -24,23 +23,22 @@ class Featured extends Component {
       <div>
         <h2>{this.props.loading ? 'Loading' : 'DONE LOADING'}</h2>
         <div>Not signed in</div>
-        <Counter tasks={this.props.tasks}/>
         <TaskList tasks={this.props.tasks} removeTask={this.props.removeTask}/>
       </div>
     )
   }
 }
 
-//passing down state from the provider as props to the child components
-function mapStateToProps(state) {
+//Making state avaivable as props
+const mapStateToProps = (state) => {
   return {
     loading: state.userfeedback.loading,
     tasks: state.tasks.data
   }
 }
 
-//Wrapping actions with the dispatcher
-function mapDispatchToProps(dispatch){
+//Wrapping action creators into the dispatcher and making actions avaivable as props
+const mapDispatchToProps = (dispatch) => {
   return {
     fetchTasks:   bindActionCreators(actions.fetchTasks, dispatch),
     updateTasks:  bindActionCreators(actions.updateTasks, dispatch),
@@ -48,6 +46,5 @@ function mapDispatchToProps(dispatch){
   }
 }
 
-//Using connector to connect the component to the provided store
-//maps the state and dispatch actions
+//exports component connected to redux
 export default connect(mapStateToProps, mapDispatchToProps)(Featured)

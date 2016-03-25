@@ -5,6 +5,11 @@ let initialState = {
     hasreceiveddata: false,
     submittingnew: false
   },
+  auth: {
+    current: '',
+    username: null,
+    userid: null
+  },
   userfeedback: {
     loading: false,
     message: ''
