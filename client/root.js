@@ -4,7 +4,7 @@ import { Provider }             from 'react-redux'
 import { Router, hashHistory }  from 'react-router'
 import Firebase                 from 'firebase'
 import store                    from '../src/redux/store/store'
-import routes                   from './routes'
+import routes                   from '../src/routes'
 
 //render the main component and mount to the root DOM elements
 //Subscribe and make store available to all nested components using Provider

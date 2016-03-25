@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import Auth                 from './Auth'
-import { Link }             from 'react-router'
+import React    from 'react'
+import Auth     from './Auth'
+import { Link } from 'react-router'
 
 const Nav = () => {
   return (

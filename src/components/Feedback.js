@@ -1,4 +1,4 @@
-import React, { Component }   from 'react'
+import React                  from 'react'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -14,10 +14,4 @@ const Feedback = ({ message }) => {
     )
 }
 
-function mapStateToProps(state) {
-  return {
-    message: state.userfeedback.message
-  }
-}
-
-export default connect(mapStateToProps)(Feedback)
+export default Feedback
