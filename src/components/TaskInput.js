@@ -27,7 +27,6 @@ class TaskInput extends Component {
       <div>
         <input 
         type="text"
-        placeholder="Add task"
         value={this.state.inputText}
         onChange={this._handleChange.bind(this)}
         />
@@ -38,7 +37,8 @@ class TaskInput extends Component {
             <option value="High">High</option>
           </select>
         </div>  
-        <button onClick={this._handleSubmit.bind(this)}>Submit</button>
+        <a className="waves-effect waves-light btn" onClick={this._handleSubmit.bind(this)}>
+        <i className="material-icons left">note_add</i>Add Task</a>
       </div>
     )
   }

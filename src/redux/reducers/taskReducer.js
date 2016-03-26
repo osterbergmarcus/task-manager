@@ -1,21 +1,16 @@
 import { AWAIT_NEW_TASK, RECEIVE_NEW_TASK_RESPONSE, UPDATE_TASKS } from '../constants'
-
-
-//Helper function
-
+import initialState                                                from '../initialState'
 //Define export reducer, slicing out tasks property from state.
-const taskReducer = (tasks = {}, action) => {
+const taskReducer = (state = initialState.tasks.data, action) => {
   switch(action.type) {
     case AWAIT_NEW_TASK:
-			return Object.assign({}, tasks, {submittingnew: true})
-      
+			return Object.assign({}, state, {submittingnew: true})
     case RECEIVE_NEW_TASK_RESPONSE:
-      return Object.assign({}, tasks, {submittingnew: false})
+      return Object.assign({}, state, {submittingnew: false})
     case UPDATE_TASKS:
-      return Object.assign({}, tasks, {data: action.data})
- 
+      return Object.assign({}, state, {data: action.data})
     default:
-      return tasks;
+      return state;
   }
 }
 

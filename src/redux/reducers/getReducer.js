@@ -1,10 +1,10 @@
-import { FETCH_TASKS, DISPLAY_ERROR, DISPLAY_MESSAGE } from '../constants'
+import { SERVER_REQUEST, DISPLAY_ERROR, DISPLAY_MESSAGE } from '../constants'
 import initialState from '../initialState'
 
 //Define export reducer, slicing out user property from state.
 const getReducer = (state = initialState.userfeedback, action) => {
   switch(action.type){
-    case FETCH_TASKS:
+    case SERVER_REQUEST:
       if(action.fetching){
         return Object.assign({}, state, {loading: true})
       } else {

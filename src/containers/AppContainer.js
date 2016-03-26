@@ -1,14 +1,16 @@
-import React, { Component }   from 'react'
-import { connect }            from 'react-redux'
-import { bindActionCreators } from 'redux'
-import App                    from '../components/App'
-import { loginUser, logoutUser }  from '../redux/actions/authActions'
+import React, { Component }      from 'react'
+import { connect }               from 'react-redux'
+import { bindActionCreators }    from 'redux'
+import { loginUser, logoutUser } from '../redux/actions/authActions'
+import App                       from '../components/App'
+
 
 //Wrapping action creators into the dispatcher and making actions avaivable as props
 const mapStateToProps = (state) => {
   return {
+    auth: state.auth,
     message: state.userfeedback.message,
-    auth: state.auth
+    loading: state.userfeedback.loading
   }
 }
 

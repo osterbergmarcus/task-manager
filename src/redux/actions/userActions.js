@@ -1,7 +1,7 @@
 import Firebase from 'firebase'
 import { 
   ADD_TASK,
-  FETCH_TASKS, 
+  SERVER_REQUEST, 
   FIREBASE,
   AWAIT_NEW_TASK,
   RECEIVE_NEW_TASK_RESPONSE,
@@ -21,7 +21,7 @@ export function addTask(text, priority){
       tasksRef.push({text, priority}, (error) => {
         dispatch({type: RECEIVE_NEW_TASK_RESPONSE})
          if (error){
-          dispatch({type: DISPLAY_ERROR, message: "Submission failed" + error})
+          dispatch({type: DISPLAY_ERROR, message: "Failed to submit task " + error})
          } else {
           dispatch({type: DISPLAY_MESSAGE, message: "Task succesfully saved"})
          }
@@ -31,12 +31,11 @@ export function addTask(text, priority){
 
 export function removeTask(fireBaseRef){
   return (dispatch) => {
-    dispatch({type: REMOVE_TASK, removing: true})
     let tempTaskRef = new Firebase(FIREBASE).child('tasks/data/' + fireBaseRef)
     
     tempTaskRef.remove((error) => {
       if(error) {
-        dispatch({DISPLAY_ERROR, message: "Failed to delete task"})
+        dispatch({type: DISPLAY_ERROR, message: "Failed to delete task " + error})
       } else {
         dispatch({type: DISPLAY_MESSAGE, message: "Task succesfully deleted"})
       }
@@ -48,11 +47,11 @@ export function removeTask(fireBaseRef){
 //server request
 export function fetchTasks(fireBaseRef) {
   return (dispatch) => {
-    dispatch({type: FETCH_TASKS, fetching: true})
+    dispatch({type: SERVER_REQUEST, fetching: true})
     
     fireBaseRef.once('value', (snapshot) => {
       const tasks = snapshot.val()
-      dispatch({type: FETCH_TASKS, fetching: false})
+      dispatch({type: SERVER_REQUEST, fetching: false})
     })
   }
 }

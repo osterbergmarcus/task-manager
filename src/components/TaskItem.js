@@ -7,3 +7,10 @@ const TaskItem = ({task, removeTask}) => {
 }
 
 export default TaskItem
+
+    // <ul className="collection">
+    //   <li className="collection-item avatar">
+    //     <img src="" alt="" className="circle">
+    //     <span className="title">Title</span>
+    //   </li>
+    // </ul>

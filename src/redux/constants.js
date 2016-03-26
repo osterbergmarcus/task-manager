@@ -8,7 +8,7 @@ export const DISPLAY_MESSAGE = 'DISPLAY_MESSAGE'
 
 //Firebase constants
 export const FIREBASE = 'https://bayoga.firebaseio.com/'
-export const FETCH_TASKS = 'FETCH_TASKS'
+export const SERVER_REQUEST = 'SERVER_REQUEST'
 export const AWAIT_NEW_TASK = 'AWAIT_NEW_TASK'
 export const RECEIVE_NEW_TASK_RESPONSE = 'RECEIVE_NEW_TASK_RESPONSE'
 

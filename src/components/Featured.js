@@ -18,8 +18,7 @@ class Featured extends Component {
   render() {
     return (
       <div>
-        <h2>{this.props.loading ? 'Loading' : 'DONE LOADING'}</h2>
-        <div>Not signed in</div>
+        <h2>Tasks</h2>
         <TaskList tasks={this.props.tasks} removeTask={this.props.removeTask}/>
       </div>
     )
