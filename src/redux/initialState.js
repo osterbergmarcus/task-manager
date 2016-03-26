@@ -8,7 +8,8 @@ let initialState = {
   auth: {
     status: 'ANONYMOUS',
     username: 'Guest',
-    uid: null
+    uid: null,
+    avatar: ''
   },
   userfeedback: {
     loading: false,

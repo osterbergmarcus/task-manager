@@ -8,7 +8,8 @@ import Featured               from '../components/Featured'
 const mapStateToProps = (state) => {
   return {
     loading: state.userfeedback.loading,
-    tasks: state.tasks.data
+    tasks: state.tasks.data,
+    auth: state.auth
   }
 }
 

@@ -15,18 +15,22 @@ const tasksRef = new Firebase(FIREBASE).child('tasks/data')
 
 //Define and export action creators
 export function addTask(text, priority){
-    return (dispatch) => {
+  return (dispatch) => {
+    if(!text){
+      dispatch({type: DISPLAY_ERROR, message: "Input text missing"})
+    } else {
       dispatch({type: AWAIT_NEW_TASK})
-      
+    
       tasksRef.push({text, priority}, (error) => {
         dispatch({type: RECEIVE_NEW_TASK_RESPONSE})
-         if (error){
-          dispatch({type: DISPLAY_ERROR, message: "Failed to submit task " + error})
-         } else {
-          dispatch({type: DISPLAY_MESSAGE, message: "Task succesfully saved"})
-         }
+          if (error){
+            dispatch({type: DISPLAY_ERROR, message: "Failed to submit task " + error})
+          } else {
+            dispatch({type: DISPLAY_MESSAGE, message: "Task succesfully saved"})
+          }
       })
     }
+  }
 }
 
 export function removeTask(fireBaseRef){

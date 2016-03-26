@@ -18,7 +18,11 @@ export function loginUser(text, priority){
       } else {
         dispatch({type: 'DISPLAY_MESSAGE', message: "Logged in"})
         console.log(authData)
-        dispatch({type: 'LOGGED_IN_USER', username: authData.google.displayName, uid: authData.uid})
+        dispatch({type: 'LOGGED_IN_USER',
+                  username: authData.google.displayName,
+                  uid: authData.uid,
+                  avatar: authData.google.profileImageURL
+                })
         dispatch({type: 'SERVER_REQUEST', fetching: false})
       }
     })

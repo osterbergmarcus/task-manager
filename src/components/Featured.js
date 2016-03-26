@@ -18,8 +18,7 @@ class Featured extends Component {
   render() {
     return (
       <div>
-        <h2>Tasks</h2>
-        <TaskList tasks={this.props.tasks} removeTask={this.props.removeTask}/>
+        <TaskList tasks={this.props.tasks} removeTask={this.props.removeTask} auth={this.props.auth}/>
       </div>
     )
   }

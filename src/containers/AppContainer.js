@@ -4,8 +4,7 @@ import { bindActionCreators }    from 'redux'
 import { loginUser, logoutUser } from '../redux/actions/authActions'
 import App                       from '../components/App'
 
-
-//Wrapping action creators into the dispatcher and making actions avaivable as props
+//Making state avaivable as props
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
@@ -14,6 +13,7 @@ const mapStateToProps = (state) => {
   }
 }
 
+//Wrapping action creators into the dispatcher and making actions avaivable as props
 const mapDispatchToProps = (dispatch) => {
   return {
     login: bindActionCreators(loginUser, dispatch),

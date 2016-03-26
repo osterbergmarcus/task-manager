@@ -1,16 +1,19 @@
 import React from 'react'
 
-const TaskItem = ({task, removeTask}) => {
+const TaskItem = ({task, removeTask, auth}) => {
   return (
-    <li onClick={() => removeTask(task.id, task.priority)}>{task.text}</li>
+    <div> 
+      <ul className="collection">
+        <li onClick={() => removeTask(task.id, task.priority)}
+            className="collection-item avatar">
+          <img src={auth.avatar} className="circle" />
+          <span className="title">{task.text}</span>
+          <p>Priority: {task.priority}</p>
+          <p>{auth.username}</p>
+        </li>
+      </ul>
+    </div>
   )
 }
 
 export default TaskItem
-
-    // <ul className="collection">
-    //   <li className="collection-item avatar">
-    //     <img src="" alt="" className="circle">
-    //     <span className="title">Title</span>
-    //   </li>
-    // </ul>

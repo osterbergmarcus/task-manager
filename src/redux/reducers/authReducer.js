@@ -11,7 +11,8 @@ const authReducer = (state = initialState.auth, action) => {
       return Object.assign({}, state, {
               status: 'LOGGED_IN',
               username: action.username,
-              uid: action.uid
+              uid: action.uid,
+              avatar: action.avatar
              })
     default: 
       return state
