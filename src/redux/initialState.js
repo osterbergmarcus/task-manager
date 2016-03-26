@@ -6,9 +6,9 @@ let initialState = {
     submittingnew: false
   },
   auth: {
-    current: '',
-    username: null,
-    userid: null
+    status: 'ANONYMOUS',
+    username: 'Guest',
+    uid: null
   },
   userfeedback: {
     loading: false,

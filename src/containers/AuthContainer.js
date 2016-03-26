@@ -1,14 +1,14 @@
-import React, { Component }   from 'react'
-import { connect }            from 'react-redux'
-import { bindActionCreators } from 'redux'
-import App                    from '../components/App'
+import React, { Component }       from 'react'
+import { connect }                from 'react-redux'
+import { bindActionCreators }     from 'redux'
 import { loginUser, logoutUser }  from '../redux/actions/authActions'
+import Auth                       from '../components/Auth'
 
 //Wrapping action creators into the dispatcher and making actions avaivable as props
 const mapStateToProps = (state) => {
   return {
-    message: state.userfeedback.message,
-    auth: state.auth
+    username: state.auth.username,
+    uid: state.auth.uid
   }
 }
 
@@ -20,4 +20,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 //Injecting state and dispatch to props on component and connects it to redux
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(Auth)

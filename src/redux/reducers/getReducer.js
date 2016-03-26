@@ -1,23 +1,24 @@
 import { FETCH_TASKS, DISPLAY_ERROR, DISPLAY_MESSAGE } from '../constants'
+import initialState from '../initialState'
 
 //Define export reducer, slicing out user property from state.
-const getReducer = (userfeedback = {loading: false, message: ''}, action) => {
+const getReducer = (state = initialState.userfeedback, action) => {
   switch(action.type){
     case FETCH_TASKS:
       if(action.fetching){
-        return Object.assign({}, userfeedback, {loading: true})
+        return Object.assign({}, state, {loading: true})
       } else {
-        return Object.assign({}, userfeedback, {loading: false})
+        return Object.assign({}, state, {loading: false})
       }
       
     case DISPLAY_ERROR:
-      return Object.assign({}, userfeedback, {message: action.message})
+      return Object.assign({}, state, {message: action.message})
       
     case DISPLAY_MESSAGE:
-      return Object.assign({}, userfeedback, {message: action.message})
+      return Object.assign({}, state, {message: action.message})
       
     default:
-      return userfeedback;
+      return state;
   }
 }
 
