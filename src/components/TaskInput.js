@@ -33,7 +33,7 @@ class TaskInput extends Component {
             <option value="High">High</option>
           </select>
         </div>  
-        <a className="waves-effect waves-light btn" onClick={this._handleSubmit.bind(this)}>
+        <a className="btn" onClick={this._handleSubmit.bind(this)}>
         <i className="material-icons left">note_add</i>Add Task</a>
       </div>
     )
@@ -41,3 +41,9 @@ class TaskInput extends Component {
 }
 
 export default TaskInput
+
+//proptypes
+TaskInput.propTypes = {
+    addTask: React.PropTypes.func,
+    auth: React.PropTypes.object
+}

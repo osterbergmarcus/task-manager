@@ -11,3 +11,9 @@ const AddTasks = ({ addTask, auth }) => {
 }
 
 export default AddTasks
+
+//proptypes
+AddTasks.propTypes = {
+    addTask: React.PropTypes.func,
+    auth: React.PropTypes.object
+}

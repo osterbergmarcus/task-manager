@@ -1,6 +1,6 @@
-import React                  from 'react'
+import React  from 'react'
 
-const Loading = ({ loading }) => {
+const Preloader = ({ loading }) => {
   if(loading === false){
     return (
       <div>
@@ -30,5 +30,9 @@ const Loading = ({ loading }) => {
     )
   }
 }
-export default Loading
-  
+export default Preloader
+
+//proptypes
+Preloader.propTypes = {
+    loading: React.PropTypes.bool
+}

@@ -14,3 +14,13 @@ const App = ({ auth, children, message, loading, login, logout }) => {
 }
 
 export default App
+
+//proptypes
+App.propTypes = {
+    auth: React.PropTypes.object,
+    children: React.PropTypes.object,
+    message: React.PropTypes.string,
+    loading: React.PropTypes.bool,
+    login:  React.PropTypes.func,
+    logout: React.PropTypes.func
+}

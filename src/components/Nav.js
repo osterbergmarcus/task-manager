@@ -1,14 +1,13 @@
 import React    from 'react'
-import Auth     from './Auth'
-import { Link } from 'react-router'
-import Loading  from './Loading'
+import { Link }   from 'react-router'
+import Preloader  from './Preloader'
 
 const Nav = ({ auth, loading, login, logout }) => {
   return (
    <div>  
     <nav>
       <div className="nav-wrapper">
-       <Loading loading={loading} />
+       <Preloader loading={loading} />
         <ul id="nav-mobile" className="left hide-on-med-and-down">
           <li>
             <a href="#"
@@ -26,3 +25,11 @@ const Nav = ({ auth, loading, login, logout }) => {
 }
 
 export default Nav
+
+//proptypes
+Nav.propTypes = {
+    auth: React.PropTypes.object,
+    loading: React.PropTypes.bool,
+    login: React.PropTypes.func,
+    logout: React.PropTypes.func
+}

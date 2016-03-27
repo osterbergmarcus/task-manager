@@ -14,3 +14,9 @@ const Feedback = ({ message, username }) => {
 }
 
 export default Feedback
+
+//proptypes
+Feedback.propTypes = {
+    message: React.PropTypes.string,
+    username: React.PropTypes.string
+}

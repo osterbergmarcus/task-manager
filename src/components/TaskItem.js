@@ -17,3 +17,9 @@ const TaskItem = ({task, removeTask}) => {
 }
 
 export default TaskItem
+
+//proptypes
+TaskItem.propTypes = {
+  task: React.PropTypes.object,
+  removeTask: React.PropTypes.func
+}
