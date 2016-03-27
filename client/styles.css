@@ -2,14 +2,6 @@ body {
   text-align: center;
 }
 
-.low-priority {
-  background-color: #D0D0D0;
-}
-
-.high-priority {
-  background-color: #F38181;
-}
-
 input {
   margin-top: 40px;
 }

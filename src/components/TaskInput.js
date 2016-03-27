@@ -13,8 +13,8 @@ class TaskInput extends Component {
   }
   
   _handleSubmit(event){
-      this.props.addTask(this.state.inputText, this.refs.priority.value)
-      this.setState({inputText: ''})
+    this.props.addTask(this.state.inputText, this.refs.priority.value, this.props.auth.avatar, this.props.auth.username)
+    this.setState({inputText: ''})
   }
   
   render(){

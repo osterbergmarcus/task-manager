@@ -1,11 +1,11 @@
 import React      from 'react'
 import TaskInput  from '../components/TaskInput'
 
-const AddTasks = ({ addTask }) => {
+const AddTasks = ({ addTask, auth }) => {
   return (
     <div>
       <div>Add Tasks</div>
-      <TaskInput addTask={addTask}/>
+      <TaskInput addTask={addTask} auth={auth}/>
     </div>
   )
 }

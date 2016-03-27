@@ -14,14 +14,14 @@ import {
 const tasksRef = new Firebase(FIREBASE).child('tasks/data')
 
 //Define and export action creators
-export function addTask(text, priority){
+export function addTask(text, priority, avatar, username){
   return (dispatch) => {
     if(!text){
       dispatch({type: DISPLAY_ERROR, message: "Input text missing"})
     } else {
       dispatch({type: AWAIT_NEW_TASK})
     
-      tasksRef.push({text, priority}, (error) => {
+      tasksRef.push({text, priority, avatar, username}, (error) => {
         dispatch({type: RECEIVE_NEW_TASK_RESPONSE})
           if (error){
             dispatch({type: DISPLAY_ERROR, message: "Failed to submit task " + error})
@@ -66,7 +66,9 @@ export function updateTasks(fireBaseRef) {
     tasks.push({
     text: child.val().text,
     priority: child.val().priority,
-    id: child.key()
+    id: child.key(),
+    username: child.val().username,
+    avatar: child.val().avatar
   })
   })
   return {
