@@ -8,7 +8,8 @@ import Featured               from '../components/Featured'
 const mapStateToProps = (state) => {
   return {
     loading: state.userfeedback.loading,
-    tasks: state.tasks.data
+    tasks: state.tasks.data,
+    editing: state.tasks.editing
   }
 }
 
@@ -17,7 +18,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchTasks:   bindActionCreators(actions.fetchTasks, dispatch),
     updateTasks:  bindActionCreators(actions.updateTasks, dispatch),
-    removeTask:   bindActionCreators(actions.removeTask, dispatch)
+    removeTask:   bindActionCreators(actions.removeTask, dispatch),
+    editTask:     bindActionCreators(actions.editTask, dispatch)
   }
 }
 

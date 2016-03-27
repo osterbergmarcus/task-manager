@@ -7,7 +7,8 @@ import {
   RECEIVE_NEW_TASK_RESPONSE,
   DISPLAY_ERROR,
   DISPLAY_MESSAGE,
-  UPDATE_TASKS,
+  UPDATE_TASK,
+  SYNC_TASKS,
   REMOVE_TASK
  } from '../constants'
   
@@ -33,9 +34,9 @@ export function addTask(text, priority, avatar, username){
   }
 }
 
-export function removeTask(fireBaseRef){
+export function removeTask(taskID){
   return (dispatch) => {
-    let tempTaskRef = new Firebase(FIREBASE).child('tasks/data/' + fireBaseRef)
+    let tempTaskRef = new Firebase(FIREBASE).child('tasks/data/' + taskID)
     
     tempTaskRef.remove((error) => {
       if(error) {
@@ -47,6 +48,12 @@ export function removeTask(fireBaseRef){
   }
 }
 
+export function editTask(){
+  return (dispatch) => {
+    dispatch({type: 'EDITING_TASK'})
+    dispatch({type: DISPLAY_MESSAGE, message: "Editing task"})
+  }
+}
 
 //server request
 export function fetchTasks(fireBaseRef) {
@@ -72,7 +79,7 @@ export function updateTasks(fireBaseRef) {
   })
   })
   return {
-   type: UPDATE_TASKS,
+   type: SYNC_TASKS,
    data: tasks
   }
 }
