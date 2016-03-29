@@ -1,4 +1,4 @@
-import React  from 'react'
+import React, { PropTypes } from 'react'
 
 const Preloader = ({ loading }) => {
   if(loading === false){
@@ -34,5 +34,5 @@ export default Preloader
 
 //proptypes
 Preloader.propTypes = {
-    loading: React.PropTypes.bool
+    loading: PropTypes.bool
 }

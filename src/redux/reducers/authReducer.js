@@ -1,5 +1,6 @@
 // import { FETCH_TASKS, DISPLAY_ERROR, DISPLAY_MESSAGE } from '../constants'
 import initialState from '../initialState'
+
 //Define export reducer, slicing out user property from state.
 const authReducer = (state = initialState.auth, action) => {
   switch(action.type){

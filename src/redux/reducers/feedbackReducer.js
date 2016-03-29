@@ -2,7 +2,7 @@ import { SERVER_REQUEST, DISPLAY_ERROR, DISPLAY_MESSAGE } from '../constants'
 import initialState from '../initialState'
 
 //Define export reducer, slicing out user property from state.
-const getReducer = (state = initialState.userfeedback, action) => {
+const feedbackReducer = (state = initialState.userfeedback, action) => {
   switch(action.type){
     case SERVER_REQUEST:
       if(action.fetching){
@@ -18,8 +18,8 @@ const getReducer = (state = initialState.userfeedback, action) => {
       return Object.assign({}, state, {message: action.message})
       
     default:
-      return state;
+      return state
   }
 }
 
-export default getReducer
+export default feedbackReducer

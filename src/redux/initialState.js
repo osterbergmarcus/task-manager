@@ -1,7 +1,6 @@
 let initialState = {
   tasks: {
     data: [],
-    editing: false,
     hasreceiveddata: false,
     submittingnew: false
   },

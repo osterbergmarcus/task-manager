@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { FIREBASE }         from '../redux/constants'
-import TaskList             from '../components/TaskList'
-import Firebase             from 'firebase'
+import React, { PropTypes, Component } from 'react'
+import { FIREBASE }                    from '../redux/constants'
+import TaskList                        from '../components/TaskList'
+import Firebase                        from 'firebase'
 
 //firebase ref
 const tasks = new Firebase(FIREBASE).child('tasks/data')
@@ -13,14 +13,18 @@ class Featured extends Component {
     
     //setting up a event listener for on value change for tasks
     tasks.on('value', (snapshot) => {
-      this.props.updateTasks(snapshot)
+      this.props.syncTasks(snapshot)
     })
   }
 
   render() {
     return (
       <div>
-        <TaskList tasks={this.props.tasks} removeTask={this.props.removeTask} editTask={this.props.editTask} editing={this.props.editing}/>
+        <TaskList
+          tasks={this.props.tasks}
+          removeTask={this.props.removeTask} 
+          updateTask={this.props.updateTask}
+        />
       </div>
     )
   }
@@ -30,7 +34,11 @@ export default Featured
 
 //proptypes
 Featured.propTypes = {
-    fetchTasks: React.PropTypes.func,
-    updateTasks: React.PropTypes.func
+  fetchTasks: PropTypes.func,
+  syncTasks: PropTypes.func,
+  updateTasks: PropTypes.func,
+  removeTask: PropTypes.func
 }
+
+
   

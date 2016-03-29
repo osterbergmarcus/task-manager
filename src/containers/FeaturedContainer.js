@@ -9,7 +9,6 @@ const mapStateToProps = (state) => {
   return {
     loading: state.userfeedback.loading,
     tasks: state.tasks.data,
-    editing: state.tasks.editing
   }
 }
 
@@ -17,9 +16,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchTasks:   bindActionCreators(actions.fetchTasks, dispatch),
-    updateTasks:  bindActionCreators(actions.updateTasks, dispatch),
+    syncTasks:    bindActionCreators(actions.syncTasks, dispatch),
     removeTask:   bindActionCreators(actions.removeTask, dispatch),
-    editTask:     bindActionCreators(actions.editTask, dispatch)
+    updateTask:   bindActionCreators(actions.updateTask, dispatch)
   }
 }
 

@@ -36,9 +36,7 @@ export function addTask(text, priority, avatar, username){
 
 export function removeTask(taskID){
   return (dispatch) => {
-    let tempTaskRef = new Firebase(FIREBASE).child('tasks/data/' + taskID)
-    
-    tempTaskRef.remove((error) => {
+    tasksRef.child(`${taskID}`).remove((error) => {
       if(error) {
         dispatch({type: DISPLAY_ERROR, message: "Failed to delete task " + error})
       } else {
@@ -48,10 +46,16 @@ export function removeTask(taskID){
   }
 }
 
-export function editTask(){
-  return (dispatch) => {
-    dispatch({type: 'EDITING_TASK'})
-    dispatch({type: DISPLAY_MESSAGE, message: "Editing task"})
+export function updateTask(taskID, taskText, username){
+  return(dispatch) => {
+    dispatch({type: DISPLAY_MESSAGE, message: "Requesting change"})
+    tasksRef.child(`${taskID}`).update({text: taskText, username: username}, (error) => {
+      if(error) {
+        dispatch({type: DISPLAY_ERROR, message: "Failed to update task " + error})
+      } else {
+        dispatch({type: DISPLAY_MESSAGE, message: "Task succesfully updated"})
+      }
+    })
   }
 }
 
@@ -67,7 +71,7 @@ export function fetchTasks(fireBaseRef) {
   }
 }
 
-export function updateTasks(fireBaseRef) {
+export function syncTasks(fireBaseRef) {
   let tasks = []
   fireBaseRef.forEach((child) => {
     tasks.push({

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PropTypes, Component } from 'react'
 
 class TaskInput extends Component {
   constructor(props){
@@ -6,14 +6,18 @@ class TaskInput extends Component {
     this.state = {
       inputText: ''
     }
+    
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
   
-  _handleChange(e){
+  handleChange(e){
     this.setState({inputText: e.target.value})
   }
   
-  _handleSubmit(event){
-    this.props.addTask(this.state.inputText, this.refs.priority.value, this.props.auth.avatar, this.props.auth.username)
+  handleSubmit(event){
+    const { addTask, auth } = this.props
+    addTask(this.state.inputText, this.refs.priority.value, auth.avatar, auth.username)
     this.setState({inputText: ''})
   }
   
@@ -24,7 +28,7 @@ class TaskInput extends Component {
         <input 
         type="text"
         value={this.state.inputText}
-        onChange={this._handleChange.bind(this)}
+        onChange={this.handleChange}
         />
         </div>
         <div>
@@ -33,7 +37,7 @@ class TaskInput extends Component {
             <option value="High">High</option>
           </select>
         </div>  
-        <a className="btn" onClick={this._handleSubmit.bind(this)}>
+        <a className="btn" onClick={this.handleSubmit}>
         <i className="material-icons left">note_add</i>Add Task</a>
       </div>
     )
@@ -44,6 +48,6 @@ export default TaskInput
 
 //proptypes
 TaskInput.propTypes = {
-    addTask: React.PropTypes.func,
-    auth: React.PropTypes.object
+    addTask: PropTypes.func,
+    auth: PropTypes.object
 }

@@ -16,11 +16,13 @@ const taskReducer = (state = initialState.tasks, action) => {
       return Object.assign({}, state, {data: action.data})
     case 'EDITING_TASK':
       return Object.assign({}, state, {editing: true})
+    case 'TASK_TO_EDIT':
+        return state
     case 'TASK_EDITED':
       return Object.assign({}, state, {editing: false})
     
     default:
-      return state;
+      return state
   }
 }
 

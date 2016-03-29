@@ -1,6 +1,6 @@
-import React    from 'react'
-import { Link }   from 'react-router'
-import Preloader  from './Preloader'
+import React, { PropTypes }  from 'react'
+import { Link }              from 'react-router'
+import Preloader             from './Preloader'
 
 const Nav = ({ auth, loading, login, logout }) => {
   return (
@@ -10,9 +10,8 @@ const Nav = ({ auth, loading, login, logout }) => {
        <Preloader loading={loading} />
         <ul id="nav-mobile" className="left hide-on-med-and-down">
           <li>
-            <a href="#"
-              onClick={auth.uid === null ? () => login() : () => logout()}
-              >{auth.uid === null ? 'Sign in' : 'Sign out'}
+            <a href="#" onClick={auth.uid === null ? () => login() : () => logout()}>
+            {auth.uid === null ? 'Sign in' : 'Sign out'}
             </a>
           </li>
           <li><Link to="/addtasks">Add tasks</Link></li>
@@ -28,8 +27,8 @@ export default Nav
 
 //proptypes
 Nav.propTypes = {
-    auth: React.PropTypes.object,
-    loading: React.PropTypes.bool,
-    login: React.PropTypes.func,
-    logout: React.PropTypes.func
+    auth: PropTypes.object,
+    loading: PropTypes.bool,
+    login: PropTypes.func,
+    logout: PropTypes.func
 }

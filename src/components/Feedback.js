@@ -1,4 +1,4 @@
-import React                  from 'react'
+import React , { PropTypes } from 'react'
 
 const Feedback = ({ message, username }) => {
     return (
@@ -17,6 +17,6 @@ export default Feedback
 
 //proptypes
 Feedback.propTypes = {
-    message: React.PropTypes.string,
-    username: React.PropTypes.string
+  message: PropTypes.string,
+  username: PropTypes.string
 }
