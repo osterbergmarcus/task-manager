@@ -5,7 +5,7 @@ const TaskList = ({tasks, removeTask, updateTask}) => {
   return (
     <div className="container">
     <ul className="high-priority">
-    {tasks.map(task => {
+    {tasks.map((task) => {
       if(task.priority === 'High') {
         return (<TaskItem
                   key={task.id}
@@ -17,7 +17,7 @@ const TaskList = ({tasks, removeTask, updateTask}) => {
     })}   
     </ul>
     <ul className="low-priority">
-    {tasks.map(task => {
+    {tasks.map((task) => {
       if(task.priority === 'Low') {
         return (<TaskItem
                   key={task.id}

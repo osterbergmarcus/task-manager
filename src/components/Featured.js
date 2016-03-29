@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react'
+import Firebase                        from 'firebase'
 import { FIREBASE }                    from '../redux/constants'
 import TaskList                        from '../components/TaskList'
-import Firebase                        from 'firebase'
 
 //firebase ref
 const tasks = new Firebase(FIREBASE).child('tasks/data')
@@ -16,7 +16,7 @@ class Featured extends Component {
       this.props.syncTasks(snapshot)
     })
   }
-
+  
   render() {
     return (
       <div>

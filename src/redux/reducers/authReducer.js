@@ -3,9 +3,9 @@ import initialState from '../initialState'
 
 //Define export reducer, slicing out user property from state.
 const authReducer = (state = initialState.auth, action) => {
-  switch(action.type){
+  switch(action.type) {
     case 'LOGIN':
-      return Object.assign({}, state, {status: 'AWAITING_AUTH'})
+      return Object.assign({}, state, { status: 'AWAITING_AUTH' })
     case 'LOGOUT':
       return Object.assign({}, initialState.auth)
     case 'LOGGED_IN_USER':
@@ -15,7 +15,7 @@ const authReducer = (state = initialState.auth, action) => {
               uid: action.uid,
               avatar: action.avatar
              })
-    default: 
+    default:
       return state
   }
 }

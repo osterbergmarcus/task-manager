@@ -18,7 +18,7 @@ class EditItem extends Component {
   }
   
   editTask(){
-    this.setState({editing: !this.state.editing})
+    this.setState({ editing: !this.state.editing })
   }
   
   render(){
@@ -69,5 +69,6 @@ export default EditItem
 //proptypes
 EditItem.propTypes = {
   task: PropTypes.object,
-  updateTask: PropTypes.func
+  updateTask: PropTypes.func,
+  removeTask: PropTypes.func
 }

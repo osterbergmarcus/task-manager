@@ -1,11 +1,11 @@
 import React, { Component }      from 'react'
 import { connect }               from 'react-redux'
 import { bindActionCreators }    from 'redux'
-import { loginUser, logoutUser } from '../redux/actions/authActions'
+import AuthActions               from '../redux/actions/AuthActions'
 import App                       from '../components/App'
 
 //Making state avaivable as props
-const mapStateToProps = (state) => {
+function mapStateToProps(state) {
   return {
     auth: state.auth,
     message: state.userfeedback.message,
@@ -14,10 +14,10 @@ const mapStateToProps = (state) => {
 }
 
 //Wrapping action creators into the dispatcher and making actions avaivable as props
-const mapDispatchToProps = (dispatch) => {
+function mapDispatchToProps(dispatch) {
   return {
-    login: bindActionCreators(loginUser, dispatch),
-    logout: bindActionCreators(logoutUser, dispatch)
+    login:  bindActionCreators(AuthActions.loginUser, dispatch),
+    logout: bindActionCreators(AuthActions.logoutUser, dispatch)
   }
 }
 

@@ -1,7 +1,8 @@
-import { AWAIT_NEW_TASK,
-         RECEIVE_NEW_TASK_RESPONSE,
-         UPDATE_TASK, 
-         SYNC_TASKS
+import {
+  AWAIT_NEW_TASK,
+  RECEIVE_NEW_TASK_RESPONSE,
+  UPDATE_TASK, 
+  SYNC_TASKS
 } from '../constants'
 import initialState from '../initialState'
 
@@ -9,18 +10,17 @@ import initialState from '../initialState'
 const taskReducer = (state = initialState.tasks, action) => {
   switch(action.type) {
     case AWAIT_NEW_TASK:
-			return Object.assign({}, state, {submittingnew: true})
+			return Object.assign({}, state, { submittingnew: true })
     case RECEIVE_NEW_TASK_RESPONSE:
-      return Object.assign({}, state, {submittingnew: false})
+      return Object.assign({}, state, { submittingnew: false })
     case SYNC_TASKS:
-      return Object.assign({}, state, {data: action.data})
+      return Object.assign({}, state, { data: action.data })
     case 'EDITING_TASK':
-      return Object.assign({}, state, {editing: true})
+      return Object.assign({}, state, { editing: true })
     case 'TASK_TO_EDIT':
         return state
     case 'TASK_EDITED':
-      return Object.assign({}, state, {editing: false})
-    
+      return Object.assign({}, state, { editing: false })
     default:
       return state
   }

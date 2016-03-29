@@ -1,6 +1,6 @@
 import React                              from 'react'
-import { App, Featured, AddTasks, Auth }  from '../src/containers'
 import { Route, IndexRoute}               from 'react-router'
+import { App, Featured, AddTasks, Auth }  from '../src/containers'
 
 export default (
   <Route path="/" component={App}>

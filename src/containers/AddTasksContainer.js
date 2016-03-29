@@ -1,20 +1,20 @@
 import React, { Component }   from 'react'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { addTask }            from '../redux/actions/userActions'
+import TaskActions            from '../redux/actions/TaskActions'
 import AddTasks               from '../components/AddTasks'
 
 //Making state avaivable as props
-const mapStateToProps = (state) => {
+function mapStateToProps(state) {
   return {
     auth: state.auth
   }
 }
 
 //Wrapping action creators into the dispatcher and making actions avaivable as props
-const mapDispatchToProps = (dispatch) => {
+function mapDispatchToProps(dispatch) {
   return {
-    addTask: bindActionCreators(addTask, dispatch)
+    addTask: bindActionCreators(TaskActions.addTask, dispatch)
   }
 }
 

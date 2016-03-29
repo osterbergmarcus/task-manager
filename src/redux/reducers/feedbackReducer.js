@@ -3,20 +3,17 @@ import initialState from '../initialState'
 
 //Define export reducer, slicing out user property from state.
 const feedbackReducer = (state = initialState.userfeedback, action) => {
-  switch(action.type){
+  switch(action.type) {
     case SERVER_REQUEST:
-      if(action.fetching){
-        return Object.assign({}, state, {loading: true})
+      if (action.fetching) {
+        return Object.assign({}, state, { loading: true })
       } else {
-        return Object.assign({}, state, {loading: false})
+        return Object.assign({}, state, { loading: false })
       }
-      
     case DISPLAY_ERROR:
-      return Object.assign({}, state, {message: action.message})
-      
+      return Object.assign({}, state, { message: action.message })
     case DISPLAY_MESSAGE:
-      return Object.assign({}, state, {message: action.message})
-      
+      return Object.assign({}, state, { message: action.message })
     default:
       return state
   }

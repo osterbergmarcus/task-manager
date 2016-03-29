@@ -1,6 +1,6 @@
-import React, { PropTypes }    from 'react'
-import Nav      from '../components/Nav'
-import FeedBack from '../components/Feedback'
+import React, { PropTypes } from 'react'
+import Nav                  from '../components/Nav'
+import FeedBack             from '../components/Feedback'
 
 //Rendering Navbar and children containers of /route
 const App = ({ auth, children, message, loading, login, logout }) => {

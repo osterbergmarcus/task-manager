@@ -1,5 +1,5 @@
-import React, { PropTypes }     from 'react'
-import TaskInput  from '../components/TaskInput'
+import React, { PropTypes } from 'react'
+import TaskInput            from '../components/TaskInput'
 
 const AddTasks = ({ addTask, auth }) => {
   return (
