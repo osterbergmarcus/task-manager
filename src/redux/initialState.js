@@ -1,8 +1,6 @@
 let initialState = {
   tasks: {
     data: [],
-    hasreceiveddata: false,
-    submittingnew: false
   },
   auth: {
     status: 'ANONYMOUS',

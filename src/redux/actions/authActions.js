@@ -1,30 +1,37 @@
-import Firebase from 'firebase'
-import { FIREBASE } from '../constants'
-
-const authRef = new Firebase(FIREBASE)
+import {
+  LOGIN,
+  LOGOUT,
+  USER_LOGGED_IN,
+  FIREBASE,
+  SERVER_REQUEST,
+  SERVER_RESPONSE,
+  SERVER_SUBMIT,
+  DISPLAY_MESSAGE
+} from '../constants'
+const rootRef = new Firebase(FIREBASE)
 
 //Define and export action creators
 const AuthActions = {
   loginUser(text, priority) {
     return (dispatch) => {
-      dispatch({type: 'LOGIN'})
-          dispatch({type: 'DISPLAY_MESSAGE', message: 'Authentication requested'})
-          dispatch({type: 'SERVER_REQUEST', fetching: true})
-      
-      authRef.authWithOAuthPopup("google", (error, authData) => {
+      dispatch({ type: LOGIN, status: 'AWAITING AUTH' })
+      dispatch({ type: DISPLAY_MESSAGE, message: 'Authentication requested' })
+      dispatch({ type: SERVER_REQUEST, request: true })
+      rootRef.authWithOAuthPopup('google', (error, authData) => {
         if (error) {
-          dispatch({type: 'DISPLAY_ERROR', message: 'Failed to login'})
-          dispatch({type: 'LOGOUT'})
-          dispatch({type: 'SERVER_REQUEST', fetching: false})
+          dispatch({ type: DISPLAY_MESSAGE, message: 'Failed to login' })
+          dispatch({ type: SERVER_RESPONSE, request: false })
+          dispatch({ type: LOGOUT })
         } else {
-          dispatch({type: 'DISPLAY_MESSAGE', message: 'Logged in'})
-          console.log(authData)
-          dispatch({type: 'LOGGED_IN_USER',
-                    username: authData.google.displayName,
-                    uid: authData.uid,
-                    avatar: authData.google.profileImageURL
-                  })
-          dispatch({type: 'SERVER_REQUEST', fetching: false})
+          dispatch({ type: SERVER_RESPONSE, request: false })
+          dispatch({
+            type: USER_LOGGED_IN,
+            status: 'USER LOGGED IN',
+            username: authData.google.displayName,
+            uid: authData.uid,
+            avatar: authData.google.profileImageURL
+          })
+          dispatch({ type: DISPLAY_MESSAGE, message: 'Logged in' })
         }
       })
     }
@@ -32,9 +39,9 @@ const AuthActions = {
 
   logoutUser(text, priority)  {
     return (dispatch) => {
-      dispatch({type: 'LOGOUT'})
-      dispatch({type: 'DISPLAY_MESSAGE', message: 'Logged out'})
-      authRef.unauth()
+      dispatch({ type: LOGOUT })
+      dispatch({ type: DISPLAY_MESSAGE, message: 'Logged out' })
+      rootRef.unauth()
     }
   }
 }

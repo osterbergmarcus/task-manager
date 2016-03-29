@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react'
-import Firebase                        from 'firebase'
 import { FIREBASE }                    from '../redux/constants'
 import TaskList                        from '../components/TaskList'
 

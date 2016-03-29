@@ -6,9 +6,10 @@ import Firebase                 from 'firebase'
 import store                    from '../src/redux/store/store'
 import routes                   from '../src/routes'
 
-//render the main component and mount to the root DOM elements
-//Subscribe and make store available to all nested components using Provider
-//Making all childrens of the app component
+/** render the main component and mount to the root DOM elements
+*   Subscribe and make store available to all nested components using Provider
+*   Making all childrens of the app component
+*/
 render(
   <Provider store={store}>
     <Router history={hashHistory} routes={routes} />

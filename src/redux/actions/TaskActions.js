@@ -1,34 +1,32 @@
-import Firebase from 'firebase'
 import { 
   ADD_TASK,
   SERVER_REQUEST, 
   FIREBASE,
-  AWAIT_NEW_TASK,
-  RECEIVE_NEW_TASK_RESPONSE,
-  DISPLAY_ERROR,
+  SERVER_RESPONSE,
+  SERVER_SUBMIT,
   DISPLAY_MESSAGE,
   UPDATE_TASK,
   SYNC_TASKS,
   REMOVE_TASK
  } from '../constants'
   
-const tasksRef = new Firebase(FIREBASE).child('tasks/data')
+const itemRef = new Firebase(FIREBASE).child('tasks/data')
 
 //Define and export action creators
 const TaskActions = {
   addTask(text, priority, avatar, username) {
     return (dispatch) => {
-      if(!text){
-        dispatch({type: DISPLAY_ERROR, message: 'Input text missing'})
+      if (!text) {
+        dispatch({ type: DISPLAY_MESSAGE, message: 'Input text missing' })
       } else {
-        dispatch({type: AWAIT_NEW_TASK})
-      
-        tasksRef.push({text, priority, avatar, username}, (error) => {
-          dispatch({type: RECEIVE_NEW_TASK_RESPONSE})
-            if (error){
-              dispatch({type: DISPLAY_ERROR, message: `Failed to submit task ${error}`})
+        dispatch({ type: SERVER_SUBMIT, submit: true })
+        itemRef.push({ text, priority, avatar, username }, (error) => {
+            if (error) {
+              dispatch({ type: DISPLAY_MESSAGE, message: `Failed to submit task ${error}` })
+              dispatch({ type: SERVER_RESPONSE, submit: false })
             } else {
-              dispatch({type: DISPLAY_MESSAGE, message: 'Task succesfully saved'})
+              dispatch({ type: DISPLAY_MESSAGE, message: 'Task succesfully saved' })
+              dispatch({ type: SERVER_RESPONSE, submit: false })
             }
         })
       }
@@ -37,24 +35,24 @@ const TaskActions = {
 
   removeTask(taskID) {
     return (dispatch) => {
-      tasksRef.child(`${taskID}`).remove((error) => {
-        if(error) {
-          dispatch({type: DISPLAY_ERROR, message: `Failed to delete task ${error}`})
+      itemRef.child(`${taskID}`).remove((error) => {
+        if (error) {
+          dispatch({ type: DISPLAY_MESSAGE, message: `Failed to delete task ${error}` })
         } else {
-          dispatch({type: DISPLAY_MESSAGE, message: 'Task succesfully deleted'})
+          dispatch({ type: DISPLAY_MESSAGE, message: 'Task succesfully deleted' })
         }
       })
     }
   },
 
-  updateTask(taskID, taskText, username) {
+  updateTask(taskID, text, username) {
     return(dispatch) => {
-      dispatch({type: DISPLAY_MESSAGE, message: 'Requesting change'})
-      tasksRef.child(`${taskID}`).update({text: taskText, username: username}, (error) => {
-        if(error) {
-          dispatch({type: DISPLAY_ERROR, message: `Failed to update task ${error}`})
+      dispatch({ type: DISPLAY_MESSAGE, message: 'Requesting change' })
+      itemRef.child(`${taskID}`).update({ text, username }, (error) => {
+        if (error) {
+          dispatch({ type: DISPLAY_MESSAGE, message: `Failed to update task ${error}` })
         } else {
-          dispatch({type: DISPLAY_MESSAGE, message: 'Task succesfully updated'})
+          dispatch({ type: DISPLAY_MESSAGE, message: 'Task succesfully updated' })
         }
       })
     }
@@ -63,11 +61,10 @@ const TaskActions = {
   //server request
   fetchTasks(fireBaseRef) {
     return (dispatch) => {
-      dispatch({type: SERVER_REQUEST, fetching: true})
-      
+      dispatch({ type: SERVER_REQUEST, request: true })
       fireBaseRef.once('value', (snapshot) => {
         const tasks = snapshot.val()
-        dispatch({type: SERVER_REQUEST, fetching: false})
+        dispatch({ type: SERVER_RESPONSE, request: false })
       })
     }
   },
@@ -84,8 +81,8 @@ const TaskActions = {
     })
     })
     return {
-    type: SYNC_TASKS,
-    data: tasks
+      type: SYNC_TASKS,
+      data: tasks
     }
   }
 }

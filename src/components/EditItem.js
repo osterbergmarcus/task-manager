@@ -14,7 +14,7 @@ class EditItem extends Component {
   saveTask(){
     const { task } = this.props
     this.props.updateTask(task.id, this.refs.inputValue.value, task.username)
-    this.editTask
+    this.editTask()
   }
   
   editTask(){
