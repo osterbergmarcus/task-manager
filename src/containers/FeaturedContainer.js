@@ -15,10 +15,10 @@ function mapStateToProps(state) {
 //Wrapping action creators into the dispatcher and making actions avaivable as props
 function mapDispatchToProps(dispatch) {
   return {
-    fetchTasks:   bindActionCreators(TaskActions.fetchTasks, dispatch),
-    syncTasks:    bindActionCreators(TaskActions.syncTasks, dispatch),
-    removeTask:   bindActionCreators(TaskActions.removeTask, dispatch),
-    updateTask:   bindActionCreators(TaskActions.updateTask, dispatch)
+    getTasks:          bindActionCreators(TaskActions.getTasks, dispatch),
+    subscribeTasks:    bindActionCreators(TaskActions.subscribeTasks, dispatch),
+    removeTask:        bindActionCreators(TaskActions.removeTask, dispatch),
+    updateTask:        bindActionCreators(TaskActions.updateTask, dispatch)
   }
 }
 

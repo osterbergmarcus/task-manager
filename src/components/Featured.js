@@ -8,11 +8,11 @@ const tasks = new Firebase(FIREBASE).child('tasks/data')
 class Featured extends Component {
   componentDidMount(){
     //fetching and returns data once from the server
-    this.props.fetchTasks(tasks)
+    this.props.getTasks(tasks)
     
     //setting up a event listener for on value change for tasks
     tasks.on('value', (snapshot) => {
-      this.props.syncTasks(snapshot)
+      this.props.subscribeTasks(snapshot)
     })
   }
   

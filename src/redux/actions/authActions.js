@@ -5,8 +5,7 @@ import {
   FIREBASE,
   SERVER_REQUEST,
   SERVER_RESPONSE,
-  SERVER_SUBMIT,
-  DISPLAY_MESSAGE
+  NOTIFICATION
 } from '../constants'
 const rootRef = new Firebase(FIREBASE)
 
@@ -15,11 +14,11 @@ const AuthActions = {
   loginUser(text, priority) {
     return (dispatch) => {
       dispatch({ type: LOGIN, status: 'AWAITING AUTH' })
-      dispatch({ type: DISPLAY_MESSAGE, message: 'Authentication requested' })
+      dispatch({ type: NOTIFICATION, message: 'Authentication requested' })
       dispatch({ type: SERVER_REQUEST, request: true })
       rootRef.authWithOAuthPopup('google', (error, authData) => {
         if (error) {
-          dispatch({ type: DISPLAY_MESSAGE, message: 'Failed to login' })
+          dispatch({ type: NOTIFICATION, message: 'Failed to login' })
           dispatch({ type: SERVER_RESPONSE, request: false })
           dispatch({ type: LOGOUT })
         } else {
@@ -31,7 +30,7 @@ const AuthActions = {
             uid: authData.uid,
             avatar: authData.google.profileImageURL
           })
-          dispatch({ type: DISPLAY_MESSAGE, message: 'Logged in' })
+          dispatch({ type: NOTIFICATION, message: 'Logged in' })
         }
       })
     }
@@ -40,7 +39,7 @@ const AuthActions = {
   logoutUser(text, priority)  {
     return (dispatch) => {
       dispatch({ type: LOGOUT })
-      dispatch({ type: DISPLAY_MESSAGE, message: 'Logged out' })
+      dispatch({ type: NOTIFICATION, message: 'Logged out' })
       rootRef.unauth()
     }
   }

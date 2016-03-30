@@ -1,8 +1,8 @@
 import { 
   SERVER_REQUEST, 
-  SERVER_SUBMIT,
+  PULL_DATA,
   SERVER_RESPONSE,
-  DISPLAY_MESSAGE 
+  NOTIFICATION 
 } from '../constants'
 import initialState from '../initialState'
 
@@ -15,7 +15,7 @@ const feedbackReducer = (state = initialState.userfeedback, action) => {
       } else {
         return Object.assign({}, state, { loading: false })
       }
-    case SERVER_SUBMIT:
+    case PULL_DATA:
       if (action.submit) {
         return Object.assign({}, state, { loading: true })
       } else {
@@ -27,7 +27,7 @@ const feedbackReducer = (state = initialState.userfeedback, action) => {
       } else {
         return Object.assign({}, state, { loading: false })
       }
-    case DISPLAY_MESSAGE:
+    case NOTIFICATION:
       return Object.assign({}, state, { message: action.message })
     default:
       return state
