@@ -9,3 +9,12 @@ input {
 ul {
  list-style-type: none;
 }
+
+.high-priority .collection .collection-item {
+  background-color: #BF4141;
+}
+
+.low-priority .collection .collection-item {
+  background-color: #D9985F;
+}
+  

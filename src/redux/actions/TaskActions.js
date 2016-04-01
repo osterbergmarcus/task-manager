@@ -3,7 +3,7 @@ import {
   SERVER_REQUEST, 
   FIREBASE,
   SERVER_RESPONSE,
-  PULL_DATA,
+  PUSH_DATA,
   NOTIFICATION,
   UPDATE_TASK,
   SYNC_TASKS,
@@ -19,7 +19,7 @@ const TaskActions = {
       if (!text) {
         dispatch({ type: NOTIFICATION, message: 'Input text missing' })
       } else {
-        dispatch({ type: PULL_DATA, submit: true })
+        dispatch({ type: PUSH_DATA, submit: true })
         itemRef.push({ text, priority, avatar, username }, (error) => {
             if (error) {
               dispatch({ type: NOTIFICATION, message: `Failed to submit task ${error}` })

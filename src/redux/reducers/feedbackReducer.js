@@ -1,6 +1,6 @@
 import { 
   SERVER_REQUEST, 
-  PULL_DATA,
+  PUSH_DATA,
   SERVER_RESPONSE,
   NOTIFICATION 
 } from '../constants'
@@ -15,7 +15,7 @@ const feedbackReducer = (state = initialState.userfeedback, action) => {
       } else {
         return Object.assign({}, state, { loading: false })
       }
-    case PULL_DATA:
+    case PUSH_DATA:
       if (action.submit) {
         return Object.assign({}, state, { loading: true })
       } else {

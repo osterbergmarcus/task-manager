@@ -1,16 +1,67 @@
-import React, { PropTypes } from 'react'
-import EditItem             from './EditItem'
+import React, { Component, PropTypes } from 'react'
 
-const TaskItem = ({task, removeTask, updateTask}) => {
-  return (
-     <ul className="collection">
-      <EditItem
-        task={task}
-        removeTask={removeTask}
-        updateTask={updateTask}
-      />
-     </ul>
-  )
+class TaskItem extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { 
+      editing: false
+    }
+    
+    this.saveTask = this.saveTask.bind(this)
+    this.editTask = this.editTask.bind(this)
+  }    
+
+  saveTask(){
+    const { task } = this.props
+    this.props.updateTask(task.id, this.refs.inputValue.value, task.username)
+    this.editTask()
+  }
+  
+  editTask(){
+    this.setState({ editing: !this.state.editing })
+  }
+  
+  render(){
+    const { task, removeTask } = this.props
+      return (
+       <div>
+        {this.state.editing ?
+           <div>
+            <img src={task.avatar} className="circle" />
+            <span className="title">
+              <input
+                type="text"
+                defaultValue={task.text} 
+                autoFocus
+                ref="inputValue"
+              />
+            </span>
+            <div>  
+              <a className="btn" onClick={() => this.saveTask()}>
+              <i className="material-icons left">done</i>Save</a>
+            </div>
+            <p>Priority: {task.priority}</p>
+            <p>{task.username}</p>
+           </div>
+        : 
+           <div>
+            <img src={task.avatar} className="circle" />
+            <span className="title">{task.text}</span>
+            <p>Priority: {task.priority}</p>
+            <p>{task.username}</p>
+            <div>  
+              <a className="btn" onClick={() => removeTask(task.id)}>
+              <i className="material-icons left">delete</i>Delete</a>
+            </div>
+            <div>
+              <a className="btn" onClick={() => this.editTask()}>
+              <i className="material-icons left">swap_horiz</i>Edit</a>
+            </div> 
+           </div> 
+        }
+       </div>
+      )
+  }
 }
 
 export default TaskItem
@@ -18,6 +69,6 @@ export default TaskItem
 //proptypes
 TaskItem.propTypes = {
   task: PropTypes.object,
-  removeTask: PropTypes.func,
-  updateTask: PropTypes.func
+  updateTask: PropTypes.func,
+  removeTask: PropTypes.func
 }

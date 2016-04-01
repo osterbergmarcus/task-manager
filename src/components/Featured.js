@@ -7,6 +7,9 @@ const tasks = new Firebase(FIREBASE).child('tasks/data')
 
 class Featured extends Component {
   componentDidMount(){
+    //check if user is authenticated or not
+    this.props.authCheck()
+    
     //fetching and returns data once from the server
     this.props.getTasks(tasks)
     
@@ -36,7 +39,8 @@ Featured.propTypes = {
   fetchTasks: PropTypes.func,
   syncTasks: PropTypes.func,
   updateTasks: PropTypes.func,
-  removeTask: PropTypes.func
+  removeTask: PropTypes.func,
+  authCheck: PropTypes.func
 }
 
 

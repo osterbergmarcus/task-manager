@@ -29,6 +29,7 @@ class TaskInput extends Component {
         type="text"
         value={this.state.inputText}
         onChange={this.handleChange}
+        placeholder="add task..."
         />
         </div>
         <div>

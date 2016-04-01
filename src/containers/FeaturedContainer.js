@@ -2,6 +2,7 @@ import React, { Component }   from 'react'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
 import TaskActions            from '../redux/actions/TaskActions'
+import AuthActions            from '../redux/actions/AuthActions'
 import Featured               from '../components/Featured'
 
 //Making state avaivable as props
@@ -15,10 +16,11 @@ function mapStateToProps(state) {
 //Wrapping action creators into the dispatcher and making actions avaivable as props
 function mapDispatchToProps(dispatch) {
   return {
-    getTasks:          bindActionCreators(TaskActions.getTasks, dispatch),
-    subscribeTasks:    bindActionCreators(TaskActions.subscribeTasks, dispatch),
-    removeTask:        bindActionCreators(TaskActions.removeTask, dispatch),
-    updateTask:        bindActionCreators(TaskActions.updateTask, dispatch)
+    authCheck:      bindActionCreators(AuthActions.authCheck, dispatch),
+    getTasks:       bindActionCreators(TaskActions.getTasks, dispatch),
+    subscribeTasks: bindActionCreators(TaskActions.subscribeTasks, dispatch),
+    removeTask:     bindActionCreators(TaskActions.removeTask, dispatch),
+    updateTask:     bindActionCreators(TaskActions.updateTask, dispatch)
   }
 }
 

@@ -4,7 +4,6 @@ import TaskInput            from '../components/TaskInput'
 const AddTasks = ({ addTask, auth }) => {
   return (
     <div>
-      <div>Add Tasks</div>
       <TaskInput 
         addTask={addTask}
         auth={auth}

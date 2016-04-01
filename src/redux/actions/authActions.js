@@ -11,6 +11,26 @@ const rootRef = new Firebase(FIREBASE)
 
 //Define and export action creators
 const AuthActions = {
+  authCheck() {
+    return (dispatch) => {
+      dispatch({ type: NOTIFICATION, message: 'Checking for current authentication' })
+      rootRef.onAuth((authData) => {
+        if (authData) {
+          dispatch({
+            type: USER_LOGGED_IN,
+            status: 'USER LOGGED IN',
+            username: authData.google.displayName,
+            uid: authData.uid,
+            avatar: authData.google.profileImageURL
+          })
+          dispatch({ type: NOTIFICATION, message: 'Logged in' })
+        } else {
+          dispatch({ type: NOTIFICATION, message: 'Sign in to use application' })  
+        }
+      })
+    }
+  },
+  
   loginUser(text, priority) {
     return (dispatch) => {
       dispatch({ type: LOGIN, status: 'AWAITING AUTH' })

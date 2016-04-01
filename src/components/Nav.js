@@ -6,7 +6,7 @@ const Nav = ({ auth, loading, login, logout }) => {
   return (
    <div>  
     <nav>
-      <div className="nav-wrapper">
+      <div className="nav-wrapper teal">
        <Preloader loading={loading} />
         <ul id="nav-mobile" className="left hide-on-med-and-down">
           <li>
