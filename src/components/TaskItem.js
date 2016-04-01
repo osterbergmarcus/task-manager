@@ -12,8 +12,8 @@ class TaskItem extends Component {
   }    
 
   saveTask(){
-    const { task } = this.props
-    this.props.updateTask(task.id, this.refs.inputValue.value, task.username)
+    const { task, auth } = this.props
+    this.props.updateTask(task.id, this.refs.inputValue.value, auth.username, auth.avatar)
     this.editTask()
   }
   

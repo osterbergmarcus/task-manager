@@ -1,17 +1,17 @@
 import React, { PropTypes } from 'react'
 
 const Preloader = ({ loading }) => {
-  if(loading === false){
+  if (loading === false) {
     return (
       <div>
-        <a href="#" className="brand-logo center">TaskMan</a>
+        <a href="#" className="brand-logo center"><i className="large material-icons">loop</i></a>
       </div>
     )
   } else {
     return (
-      <div>
-      <div className="preloader-wrapper small active center-align">
-        <div className="spinner-layer spinner-blue-only">
+      <div className="center">
+      <div className="preloader-wrapper small active">
+        <div className="spinner-layer spinner-blue lighten-1-only">
           <div className="circle-clipper left">
             <div className="circle">
             </div>

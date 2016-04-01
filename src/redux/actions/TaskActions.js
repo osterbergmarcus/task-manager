@@ -45,10 +45,10 @@ const TaskActions = {
     }
   },
 
-  updateTask(taskID, text, username) {
+  updateTask(taskID, text, username, avatar) {
     return(dispatch) => {
       dispatch({ type: NOTIFICATION, message: 'Requesting change' })
-      itemRef.child(`${taskID}`).update({ text, username }, (error) => {
+      itemRef.child(`${taskID}`).update({ text, username, avatar }, (error) => {
         if (error) {
           dispatch({ type: NOTIFICATION, message: `Failed to update task ${error}` })
         } else {

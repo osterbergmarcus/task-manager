@@ -10,6 +10,7 @@ function mapStateToProps(state) {
   return {
     loading: state.userfeedback.loading,
     tasks: state.tasks.data,
+    auth: state.auth
   }
 }
 

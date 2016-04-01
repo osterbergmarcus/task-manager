@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import TaskItem from './TaskItem'
 
-const TaskList = ({tasks, removeTask, updateTask}) => {
+const TaskList = ({tasks, removeTask, updateTask, auth}) => {
   return (
     <div className="container">
     <div className="divider" />
@@ -13,14 +13,15 @@ const TaskList = ({tasks, removeTask, updateTask}) => {
                       key={task.id}
                       task={task}
                       removeTask={removeTask}
-                      updateTask={updateTask} 
+                      updateTask={updateTask}
+                      auth={auth}
                   />)
           }
         })}  
       </li>
     </ul>
     <ul className="collection low-priority">
-      <li className="collection-item avatar orange">
+      <li className="collection-item avatar grey">
         {tasks.map((task) => {
           if(task.priority === 'Low') {
             return (<TaskItem
@@ -28,6 +29,7 @@ const TaskList = ({tasks, removeTask, updateTask}) => {
                       task={task}
                       removeTask={removeTask}
                       updateTask={updateTask}
+                      auth={auth}
                   />)
           }
         })}
@@ -45,5 +47,6 @@ export default TaskList
 TaskItem.propTypes = {
   tasks: PropTypes.array,
   removeTask: PropTypes.func,
-  updateTask: PropTypes.func
+  updateTask: PropTypes.func,
+  auth: PropTypes.object
 }

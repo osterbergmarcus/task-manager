@@ -26,6 +26,7 @@ class Featured extends Component {
           tasks={this.props.tasks}
           removeTask={this.props.removeTask} 
           updateTask={this.props.updateTask}
+          auth={this.props.auth}
         />
       </div>
     )
@@ -38,9 +39,11 @@ export default Featured
 Featured.propTypes = {
   fetchTasks: PropTypes.func,
   syncTasks: PropTypes.func,
-  updateTasks: PropTypes.func,
+  subscribeTasks: PropTypes.func,
   removeTask: PropTypes.func,
-  authCheck: PropTypes.func
+  authCheck: PropTypes.func,
+  tasks: PropTypes.array,
+  auth: PropTypes.object
 }
 
 
