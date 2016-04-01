@@ -26,7 +26,7 @@ class TaskItem extends Component {
       return (
        <div>
         {this.state.editing ?
-           <div>
+           <li className="collection-item avatar">
             <img src={task.avatar} className="circle" />
             <span className="title">
               <input
@@ -38,24 +38,21 @@ class TaskItem extends Component {
             </span>
             <p>{task.username}</p>
             <p>  
-              <a className="btn" onClick={() => this.saveTask()}>
+              <a className="btn teal" onClick={() => this.saveTask()}>
               <i className="material-icons left">done</i>Save</a>
             </p>
-            <br />
-           </div>
+          </li>
         : 
-           <div>
+            <li className="collection-item avatar">
             <img src={task.avatar} className="circle" />
-            <p><strong>{task.username}</strong></p>
-            <span className="title center"><h2>{task.text}</h2></span>
-            <p>
-              <a className="btn" onClick={() => removeTask(task.id)}>
+            <span className="title">{task.username}</span>
+            <span><h3>{task.text}</h3></span>
+              <a className="btn teal" onClick={() => removeTask(task.id)}>
               <i className="material-icons">delete</i></a>
-              <a className="btn" onClick={() => this.editTask()}>
+              
+              <a className="btn teal" onClick={() => this.editTask()}>
               <i className="material-icons">swap_horiz</i></a>
-            </p>
-            <br />
-           </div>
+           </li>
         }
        </div>
       )

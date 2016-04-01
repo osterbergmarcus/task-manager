@@ -24,6 +24,7 @@ class TaskInput extends Component {
   render(){
     return (
       <div className="container">
+      <div className="card-panel white">
       <div>
         <input 
         type="text"
@@ -32,14 +33,18 @@ class TaskInput extends Component {
         placeholder="add task..."
         />
         </div>
+        <br />
+        <label>Select priority</label>
         <div>
           <select className="browser-default" ref="priority">
             <option value="Low">Low</option>
             <option value="High">High</option>
           </select>
-        </div>  
-        <a className="btn" onClick={this.handleSubmit}>
+        </div>
+        <br />
+        <a className="btn teal" onClick={this.handleSubmit}>
         <i className="material-icons left">note_add</i>Add Task</a>
+        </div>
       </div>
     )
   }

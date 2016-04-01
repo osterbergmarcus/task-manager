@@ -4,7 +4,7 @@ const Feedback = ({ message, username }) => {
     return (
       <div className="row">
         <div className="col s4">
-          <blockquote className="grey lighten-4">
+          <blockquote className="grey lighten-3">
             <p><strong>{username}</strong></p>
             <p><italic>{message}</italic></p>
           </blockquote>

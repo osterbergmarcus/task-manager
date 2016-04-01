@@ -8,7 +8,7 @@ const Nav = ({ auth, loading, login, logout }) => {
     <nav>
       <div className="nav-wrapper teal">
        <Preloader loading={loading} />
-        <ul id="nav-mobile" className="left hide-on-med-and-down">
+        <ul id="nav-mobile" className="left">
           <li>
             <a href="#" onClick={auth.uid === null ? () => login() : () => logout()}>
             {auth.uid === null ? 'Sign in' : 'Sign out'}

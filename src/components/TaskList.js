@@ -4,39 +4,42 @@ import TaskItem from './TaskItem'
 const TaskList = ({tasks, removeTask, updateTask, auth}) => {
   return (
     <div className="container">
-    <div className="divider" />
     <ul className="collection high-priority">
-      <li className="collection-item avatar red">
-        {tasks.map((task) => {
-          if(task.priority === 'High') {
-            return (<TaskItem
-                      key={task.id}
-                      task={task}
-                      removeTask={removeTask}
-                      updateTask={updateTask}
-                      auth={auth}
-                  />)
-          }
-        })}  
-      </li>
+      {tasks.map((task) => {
+        if(task.priority === 'High') {
+          return (
+            <div>
+            <TaskItem
+              key={task.id}
+              task={task}
+              removeTask={removeTask}
+              updateTask={updateTask}
+              auth={auth}
+            />
+            <div className="divider" />
+            </div>
+          )
+        }
+      })}  
     </ul>
     <ul className="collection low-priority">
-      <li className="collection-item avatar grey">
-        {tasks.map((task) => {
-          if(task.priority === 'Low') {
-            return (<TaskItem
-                      key={task.id}
-                      task={task}
-                      removeTask={removeTask}
-                      updateTask={updateTask}
-                      auth={auth}
-                  />)
-          }
-        })}
-      </li>
+      {tasks.map((task) => {
+        if(task.priority === 'Low') {
+          return (
+            <div>
+            <TaskItem
+              key={task.id}
+              task={task}
+              removeTask={removeTask}
+              updateTask={updateTask}
+              auth={auth}
+            />
+            <div className="divider" />
+            </div>
+          )
+        }
+      })}
     </ul>
-    <div className="divider" />
-    <br />
     </div>
   )
 }

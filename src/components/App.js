@@ -16,7 +16,7 @@ const App = ({ auth, children, message, loading, login, logout }) => {
           message={message}
           username={auth.username}
         />
-          {children}
+        {children}
       </div>
     )
 }
