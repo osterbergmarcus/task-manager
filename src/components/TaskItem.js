@@ -36,28 +36,26 @@ class TaskItem extends Component {
                 ref="inputValue"
               />
             </span>
-            <div>  
+            <p>{task.username}</p>
+            <p>  
               <a className="btn" onClick={() => this.saveTask()}>
               <i className="material-icons left">done</i>Save</a>
-            </div>
-            <p>Priority: {task.priority}</p>
-            <p>{task.username}</p>
+            </p>
+            <br />
            </div>
         : 
            <div>
             <img src={task.avatar} className="circle" />
-            <span className="title">{task.text}</span>
-            <p>Priority: {task.priority}</p>
-            <p>{task.username}</p>
-            <div>  
+            <p><strong>{task.username}</strong></p>
+            <span className="title center"><h2>{task.text}</h2></span>
+            <p>
               <a className="btn" onClick={() => removeTask(task.id)}>
-              <i className="material-icons left">delete</i>Delete</a>
-            </div>
-            <div>
+              <i className="material-icons">delete</i></a>
               <a className="btn" onClick={() => this.editTask()}>
-              <i className="material-icons left">swap_horiz</i>Edit</a>
-            </div> 
-           </div> 
+              <i className="material-icons">swap_horiz</i></a>
+            </p>
+            <br />
+           </div>
         }
        </div>
       )

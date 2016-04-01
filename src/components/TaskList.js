@@ -4,8 +4,9 @@ import TaskItem from './TaskItem'
 const TaskList = ({tasks, removeTask, updateTask}) => {
   return (
     <div className="container">
+    <div className="divider" />
     <ul className="collection high-priority">
-      <li className="collection-item avatar red darken-1">
+      <li className="collection-item avatar red">
         {tasks.map((task) => {
           if(task.priority === 'High') {
             return (<TaskItem
@@ -16,10 +17,10 @@ const TaskList = ({tasks, removeTask, updateTask}) => {
                   />)
           }
         })}  
-      </li> 
+      </li>
     </ul>
     <ul className="collection low-priority">
-      <li className="collection-item avatar grey">
+      <li className="collection-item avatar orange">
         {tasks.map((task) => {
           if(task.priority === 'Low') {
             return (<TaskItem
@@ -32,6 +33,8 @@ const TaskList = ({tasks, removeTask, updateTask}) => {
         })}
       </li>
     </ul>
+    <div className="divider" />
+    <br />
     </div>
   )
 }
