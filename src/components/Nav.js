@@ -14,6 +14,7 @@ const Nav = ({ auth, loading, login, logout }) => {
             {auth.uid === null ? 'Sign in' : 'Sign out'}
             </a>
           </li>
+          <li><Link to="/about">About</Link></li>
           <li><Link to="/addtasks">Add tasks</Link></li>
           <li><Link to="/featured">Featured</Link></li>
         </ul>

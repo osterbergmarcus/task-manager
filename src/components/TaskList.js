@@ -3,14 +3,13 @@ import TaskItem from './TaskItem'
 
 const TaskList = ({tasks, removeTask, updateTask, auth}) => {
   return (
-    <div className="container">
+    <div className="">
     <ul className="collection high-priority">
       {tasks.map((task) => {
         if(task.priority === 'High') {
           return (
-            <div>
+            <div key={task.id}>
             <TaskItem
-              key={task.id}
               task={task}
               removeTask={removeTask}
               updateTask={updateTask}
@@ -26,9 +25,8 @@ const TaskList = ({tasks, removeTask, updateTask, auth}) => {
       {tasks.map((task) => {
         if(task.priority === 'Low') {
           return (
-            <div>
+            <div key={task.id}>
             <TaskItem
-              key={task.id}
               task={task}
               removeTask={removeTask}
               updateTask={updateTask}

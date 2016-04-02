@@ -1,8 +1,8 @@
-import React, { Component }      from 'react'
-import { connect }               from 'react-redux'
-import { bindActionCreators }    from 'redux'
-import AuthActions               from '../redux/actions/AuthActions'
-import App                       from '../components/App'
+import React                  from 'react'
+import { connect }            from 'react-redux'
+import { bindActionCreators } from 'redux'
+import AuthActions            from '../redux/actions/AuthActions'
+import App                    from '../components/App'
 
 //Making state avaivable as props
 function mapStateToProps(state) {

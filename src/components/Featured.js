@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import { FIREBASE }                    from '../redux/constants'
 import TaskList                        from '../components/TaskList'
-import Footer                          from '../components/Footer'
 
 //firebase ref
 const tasks = new Firebase(FIREBASE).child('tasks/data')
@@ -29,7 +28,6 @@ class Featured extends Component {
           updateTask={this.props.updateTask}
           auth={this.props.auth}
         />
-        <Footer />
       </div>
     )
   }
