@@ -1,3 +1,5 @@
+![task-man](/content/task-logo.png?raw=true)
+
 # task-manager
 
 This is a collaborative task manager created to learn and demonstrate React + Redux and everything inbetween
