@@ -38,7 +38,9 @@ Change value of FIREBASE in redux/constants.js
 
 * Add private feed for tasks
 * Add OAuth support for twitter and github
-* Add feature for sharing tasks between users
+* Add feature for sharing private tasks
+* Add feature to see task history
+* Add mobile support with React Native
 * Add modular CSS
 
 ## Contribution
