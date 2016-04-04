@@ -6,6 +6,8 @@
 
 This is a collaborative task manager created to learn and demonstrate CRUD with React + Redux and everything inbetween. Using Firebase as a backend service for realtime data comunication.
 
+See demo [here](http://osterbergmarcus.github.com/taskman)
+
 Supporting features:
 * User authentication for google accounts using OAuth
 * Create, read, update and delete tasks
