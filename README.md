@@ -1,13 +1,13 @@
 # task-manager
 
-This is a task manager created to learn React + Redux and every thing inbetween
+This is a task manager created to learn React + Redux and everything inbetween
 
 ![task-manager](/content/screenshot.JPG?raw=true)
 
 Technologies used for this project
 * React
 * Redux
-* FireBase
+* Firebase
 * Webpack
 * Babel
 * Materialize CSS
@@ -18,9 +18,9 @@ Technologies used for this project
 * `node server/server.js` to run the server on port 3000
 * Open your browser on [http://localhost:3000](http://localhost:3000)
 
-## Use your own FireBase reference
+## Use your own Firebase reference
 
-Change value of FIREBASE in redux/constants
+Change value of FIREBASE in redux/constants.js
 
 ## Roadmap
 
