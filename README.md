@@ -13,6 +13,7 @@ Supporting features:
 * Create, read, update and delete tasks
 * Select priority level on tasks from low to high
 * Responsive UI
+* Status messages
 
 ![task-manager](/content/screenshot.JPG?raw=true)
 
