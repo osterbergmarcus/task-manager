@@ -1,12 +1,19 @@
-![task-man](/content/task-logo.png?raw=true)
+<p align="center">
+<img src="https://raw.githubusercontent.com/osterbergmarcus/task-manager/master/content/task-logo.png" alt="Task-Man" />
+</p>
 
-# task-manager
+# Intro
 
-This is a collaborative task manager created to learn and demonstrate React + Redux and everything inbetween
+This is a collaborative task manager created to learn and demonstrate CRUD with React + Redux and everything inbetween. Using Firebase as a backend service for realtime data comunication.
+
+Supporting features:
+* User authentication for google accounts using OAuth
+* Create, read, update and delete tasks
+* Responsive UI
 
 ![task-manager](/content/screenshot.JPG?raw=true)
 
-Technologies used for this project
+Technologies used for this project:
 * React
 * Redux
 * Firebase
@@ -33,7 +40,8 @@ Change value of FIREBASE in redux/constants.js
 
 ## Contribution
 
-Feel free for creating issues or pull requests 
+Feel free for creating issues or pull requests to improve this repo
 
 ## Contact
-* [@osterbergmarcus](http://www.twitter.com/osterbergmarcus)
+Say hi or share your great ideas on twitter
+[@osterbergmarcus](http://www.twitter.com/osterbergmarcus)
