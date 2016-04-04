@@ -9,6 +9,7 @@ This is a collaborative task manager created to learn and demonstrate CRUD with 
 Supporting features:
 * User authentication for google accounts using OAuth
 * Create, read, update and delete tasks
+* Select priority level on tasks from low to high
 * Responsive UI
 
 ![task-manager](/content/screenshot.JPG?raw=true)
@@ -45,3 +46,8 @@ Feel free for creating issues or pull requests to improve this repo
 ## Contact
 Say hi or share your great ideas on twitter
 [@osterbergmarcus](http://www.twitter.com/osterbergmarcus)
+
+## License
+[MIT](https://opensource.org/licenses/MIT)
+
+Copyright (c) Marcus Osterberg 2016
