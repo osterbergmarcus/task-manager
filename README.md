@@ -1,6 +1,6 @@
 # task-manager
 
-This is a task manager created to learn React + Redux and everything inbetween
+This is a collaborative task manager created to learn and demonstrate React + Redux and everything inbetween
 
 ![task-manager](/content/screenshot.JPG?raw=true)
 
