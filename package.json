@@ -1,5 +1,5 @@
 {
-  "name": "task-manager",
+  "name": "taskman",
   "version": "1.0.0",
   "description": "React+Redux",
   "scripts": {
@@ -10,7 +10,7 @@
     "url": "https://github.com/osterbergmarcus/task-manager.git"
   },
   "author": "Marcus Osterberg",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "babel-core": "^6.4.5",
     "babel-loader": "^6.2.2",
