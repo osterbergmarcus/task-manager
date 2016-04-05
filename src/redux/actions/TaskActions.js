@@ -1,13 +1,10 @@
 import { 
-  ADD_TASK,
   SERVER_REQUEST, 
   FIREBASE,
   SERVER_RESPONSE,
   PUSH_DATA,
   NOTIFICATION,
-  UPDATE_TASK,
-  SYNC_TASKS,
-  REMOVE_TASK
+  SYNC_TASKS
  } from '../constants'
   
 const itemRef = new Firebase(FIREBASE).child('tasks/data')
