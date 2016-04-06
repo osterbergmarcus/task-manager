@@ -6,7 +6,7 @@ import TaskList                        from '../components/TaskList'
 const tasks = new Firebase(FIREBASE).child('tasks/data')
 
 class Featured extends Component {
-  componentDidMount(){
+  componentDidMount() {
     //check if user is authenticated or not
     this.props.authCheck()
     

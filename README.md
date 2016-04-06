@@ -43,6 +43,7 @@ Change value of FIREBASE in redux/constants.js
 * Add feature to see task history
 * Add mobile support with React Native
 * Add modular CSS
+* Add support for offline caching
 
 ## Contribution
 

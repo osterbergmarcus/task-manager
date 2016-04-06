@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 
 class TaskInput extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       inputText: ''
@@ -11,11 +11,11 @@ class TaskInput extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   
-  handleChange(e){
+  handleChange(e) {
     this.setState({inputText: e.target.value})
   }
   
-  handleSubmit(event){
+  handleSubmit() {
     const { addTask, auth } = this.props
     addTask(this.state.inputText, this.refs.priority.value, auth.avatar, auth.username)
     this.setState({ inputText: '' })

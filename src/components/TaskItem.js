@@ -11,17 +11,17 @@ class TaskItem extends Component {
     this.editTask = this.editTask.bind(this)
   }    
 
-  saveTask(){
+  saveTask() {
     const { task, auth } = this.props
     this.props.updateTask(task.id, this.refs.inputValue.value, auth.username, auth.avatar)
     this.editTask()
   }
   
-  editTask(){
+  editTask() {
     this.setState({ editing: !this.state.editing })
   }
   
-  render(){
+  render() {
     const { task, removeTask } = this.props
       return (
        <div>
@@ -38,7 +38,7 @@ class TaskItem extends Component {
             </span>
             <p>{task.username}</p>
             <p>  
-              <a className="btn teal" onClick={() => this.saveTask()}>
+              <a className="btn black" onClick={() => this.saveTask()}>
               <i className="material-icons left">done</i>Save</a>
             </p>
           </li>
@@ -47,10 +47,10 @@ class TaskItem extends Component {
             <img src={task.avatar} className="circle" />
             <span className="title">{task.username}</span>
             <span><h3>{task.text}</h3></span>
-              <a className="btn teal" onClick={() => removeTask(task.id)}>
+              <a className="btn black" onClick={() => removeTask(task.id)}>
               <i className="material-icons">delete</i></a>
               
-              <a className="btn teal" onClick={() => this.editTask()}>
+              <a className="btn black" onClick={() => this.editTask()}>
               <i className="material-icons">swap_horiz</i></a>
            </li>
         }
