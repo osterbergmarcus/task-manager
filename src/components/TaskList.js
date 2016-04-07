@@ -13,7 +13,7 @@ const TaskList = ({tasks, removeTask, updateTask, auth}) => {
               task={task}
               removeTask={removeTask}
               updateTask={updateTask}
-              auth={auth}
+              {...auth}
             />
             <div className="divider" />
             </div>
@@ -30,7 +30,7 @@ const TaskList = ({tasks, removeTask, updateTask, auth}) => {
               task={task}
               removeTask={removeTask}
               updateTask={updateTask}
-              auth={auth}
+              {...auth}
             />
             <div className="divider" />
             </div>

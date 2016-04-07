@@ -12,8 +12,8 @@ class TaskItem extends Component {
   }    
 
   saveTask() {
-    const { task, auth } = this.props
-    this.props.updateTask(task.id, this.refs.inputValue.value, auth.username, auth.avatar)
+    const { task, username, avatar } = this.props
+    this.props.updateTask(task.id, this.refs.inputValue.value, username, avatar)
     this.editTask()
   }
   
@@ -63,6 +63,8 @@ export default TaskItem
 
 //proptypes
 TaskItem.propTypes = {
+  username: PropTypes.string,
+  avatar: PropTypes.string,
   task: PropTypes.object,
   updateTask: PropTypes.func,
   removeTask: PropTypes.func

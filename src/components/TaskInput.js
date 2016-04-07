@@ -16,8 +16,8 @@ class TaskInput extends Component {
   }
   
   handleSubmit() {
-    const { addTask, auth } = this.props
-    addTask(this.state.inputText, this.refs.priority.value, auth.avatar, auth.username)
+    const { addTask, avatar, username } = this.props
+    addTask(this.state.inputText, this.refs.priority.value, avatar, username)
     this.setState({ inputText: '' })
   }
   
@@ -42,7 +42,7 @@ class TaskInput extends Component {
           </select>
         </div>
         <br />
-        <a className="btn teal" onClick={this.handleSubmit}>
+        <a className="btn black" onClick={this.handleSubmit}>
         <i className="material-icons left">note_add</i>Add Task</a>
         </div>
       </div>

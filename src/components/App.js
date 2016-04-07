@@ -7,7 +7,7 @@ const App = ({ auth, children, message, loading, login, logout }) => {
     return (
       <div>
         <Nav
-          auth={auth}
+          uid={auth.uid}
           login={login}
           logout={logout}
           loading={loading}

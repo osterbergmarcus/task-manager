@@ -6,7 +6,7 @@ const AddTasks = ({ addTask, auth }) => {
     <div>
       <TaskInput 
         addTask={addTask}
-        auth={auth}
+        {...auth}
       />
     </div>
   )
