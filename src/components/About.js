@@ -1,6 +1,6 @@
 import React from 'react'
 
-const About = ({ auth }) => {
+const About = () => {
   return (
     <div className="container">
       <div className="card-panel">

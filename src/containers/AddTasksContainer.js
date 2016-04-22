@@ -1,22 +1,34 @@
-import React                  from 'react'
+import React, { PropTypes }   from 'react'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
 import TaskActions            from '../redux/actions/TaskActions'
-import AddTasks               from '../components/AddTasks'
+import { TaskInput }          from '../components'
 
-//Making state avaivable as props
-function mapStateToProps(state) {
-  return {
+const AddTasks = ({ addTask, auth }) => {
+  return (
+    <div>
+      <TaskInput 
+        addTask={addTask}
+        {...auth}
+      />
+    </div>
+  )
+}
+
+// Proptypes
+AddTasks.propTypes = {
+  addTask: PropTypes.func,
+  auth: PropTypes.object
+}
+
+/* Exporting and connecting component
+** to state and dispatcher
+*/ 
+export default connect(
+  (state) => ({
     auth: state.auth
-  }
-}
-
-//Wrapping action creators into the dispatcher and making actions avaivable as props
-function mapDispatchToProps(dispatch) {
-  return {
+  }),
+  (dispatch) => ({
     addTask: bindActionCreators(TaskActions.addTask, dispatch)
-  }
-}
-
-//Injecting state and dispatch to props on component and connects it to redux
-export default connect(mapStateToProps, mapDispatchToProps)(AddTasks)
+  })
+)(AddTasks)

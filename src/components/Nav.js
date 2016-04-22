@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Link }             from 'react-router'
-import Preloader            from './Preloader'
+import { Preloader }        from './'
 
 const Nav = ({ uid, loading, login, logout }) => {
   return (

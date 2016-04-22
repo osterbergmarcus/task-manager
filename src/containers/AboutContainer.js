@@ -1,7 +1,7 @@
 import React                  from 'react'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
-import About                  from '../components/About'
+import { About }              from '../components/'
 
 //Making state avaivable as props
 function mapStateToProps(state) {

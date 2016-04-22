@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import TaskItem from './TaskItem'
+import { TaskItem }         from './'
 
 const TaskList = ({tasks, removeTask, updateTask, auth}) => {
   return (

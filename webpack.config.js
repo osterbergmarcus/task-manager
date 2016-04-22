@@ -4,6 +4,7 @@ module.exports = {
   devtool: 'inline-source-map',
   entry: [
     'webpack-hot-middleware/client',
+    'webpack/hot/only-dev-server',
     './client/root.js',
     './client/styles.css'
   ],
