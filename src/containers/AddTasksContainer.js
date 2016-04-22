@@ -1,7 +1,7 @@
 import React, { PropTypes }   from 'react'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { addTask }           from '../redux/modules/tasks'
+import { addTask }            from '../redux/modules/tasks'
 import { TaskInput }          from '../components'
 
 const AddTasks = ({ addTask, auth }) => {

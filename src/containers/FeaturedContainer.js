@@ -48,7 +48,8 @@ class Featured extends Component {
 
 // Proptypes
 Featured.propTypes = {
-  fetchTasks: PropTypes.func,
+  getTasks: PropTypes.func,
+  updateTask: PropTypes.func,
   syncTasks: PropTypes.func,
   subscribeTasks: PropTypes.func,
   removeTask: PropTypes.func,
