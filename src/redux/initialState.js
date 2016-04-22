@@ -8,7 +8,7 @@ let initialState = {
     uid: null,
     avatar: ''
   },
-  userfeedback: {
+  feedback: {
     loading: false,
     message: ''
   }

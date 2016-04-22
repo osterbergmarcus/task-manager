@@ -1,13 +1,17 @@
 import React, { PropTypes, Component } from 'react'
 import { connect }                     from 'react-redux'
 import { bindActionCreators }          from 'redux'
-import TaskActions                     from '../redux/actions/TaskActions'
-import AuthActions                     from '../redux/actions/AuthActions'
-import { FIREBASE }                    from '../redux/constants'
-import { TaskList }                    from '../components'
+import { authCheck }                   from '../redux/modules/auth'
+import {
+  getTasks,
+  subscribeTasks,
+  removeTask,
+  updateTask
+} from '../redux/modules/tasks'
+import { TaskList } from '../components'
 
 //firebase ref
-const tasks = new Firebase(FIREBASE).child('tasks/data')
+const tasks = new Firebase('https://bayoga.firebaseio.com/').child('tasks/data')
 
 class Featured extends Component {
   componentDidMount() {
@@ -55,18 +59,19 @@ Featured.propTypes = {
 
 /* Exporting and connecting component
 ** to state and dispatcher
+** mapStateToProps, mapDispatchToProps
 */ 
 export default connect(
   (state) => ({
-    loading: state.userfeedback.loading,
+    loading: state.feedback.loading,
     tasks: state.tasks.data,
     auth: state.auth
   }),
   (dispatch) => ({
-    authCheck:      bindActionCreators(AuthActions.authCheck, dispatch),
-    getTasks:       bindActionCreators(TaskActions.getTasks, dispatch),
-    subscribeTasks: bindActionCreators(TaskActions.subscribeTasks, dispatch),
-    removeTask:     bindActionCreators(TaskActions.removeTask, dispatch),
-    updateTask:     bindActionCreators(TaskActions.updateTask, dispatch)
-  })  
+    authCheck: bindActionCreators(authCheck, dispatch),
+    getTasks: bindActionCreators(getTasks, dispatch),
+    subscribeTasks: bindActionCreators(subscribeTasks, dispatch),
+    removeTask: bindActionCreators(removeTask, dispatch),
+    updateTask: bindActionCreators(updateTask, dispatch)
+  })
 )(Featured)

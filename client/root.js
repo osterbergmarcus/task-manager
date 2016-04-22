@@ -3,7 +3,7 @@ import { render }               from 'react-dom'
 import { Provider }             from 'react-redux'
 import { Router, hashHistory }  from 'react-router'
 import Firebase                 from 'firebase'
-import store                    from '../src/redux/store'
+import store                    from '../src/redux/createStore'
 import routes                   from '../src/routes'
 
 /** render the main component and mount to the root DOM elements

@@ -1,7 +1,7 @@
 import React, { PropTypes }   from 'react'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
-import AuthActions            from '../redux/actions/AuthActions'
+import { loginUser, logoutUser } from '../redux/modules/auth'
 import { Nav, FeedBack }      from '../components'
 
 //  Returning Navbar and route children
@@ -35,15 +35,16 @@ App.propTypes = {
 
 /* Exporting and connecting component
 ** to state and dispatcher
+** mapStateToProps, mapDispatchToProps
 */ 
 export default connect(
   (state) => ({
     auth: state.auth,
-    message: state.userfeedback.message,
-    loading: state.userfeedback.loading
+    message: state.feedback.message,
+    loading: state.feedback.loading
   }),
   (dispatch) => ({
-    login:  bindActionCreators(AuthActions.loginUser, dispatch),
-    logout: bindActionCreators(AuthActions.logoutUser, dispatch)
-  })  
+    login: bindActionCreators(loginUser, dispatch),
+    logout: bindActionCreators(logoutUser, dispatch)
+  })
 )(App)

@@ -1,13 +1,15 @@
-import { 
-  SERVER_REQUEST, 
-  PUSH_DATA,
-  SERVER_RESPONSE,
-  NOTIFICATION 
-} from '../constants'
 import initialState from '../initialState'
+import { addTask, removeTask, updateTasks, getTasks } from './tasks'
+import { authCheck, loginUser, logoutUser } from './auth'
 
-//Define export reducer, slicing out user property from state.
-const feedbackReducer = (state = initialState.userfeedback, action) => {
+// Constants
+const SERVER_REQUEST = 'SERVER_REQUEST'
+const PUSH_DATA = 'PUSH_DATA'
+const SERVER_RESPONSE = 'SERVER_RESPONSE'
+const NOTIFICATION = 'NOTIFICATION'
+
+// Reducer
+export default function reducer(state = initialState.feedback, action) {
   switch(action.type) {
     case SERVER_REQUEST:
       if (action.request) {
@@ -33,5 +35,3 @@ const feedbackReducer = (state = initialState.userfeedback, action) => {
       return state
   }
 }
-
-export default feedbackReducer

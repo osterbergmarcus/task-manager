@@ -1,7 +1,7 @@
 import React, { PropTypes }   from 'react'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
-import TaskActions            from '../redux/actions/TaskActions'
+import { addTask }           from '../redux/modules/tasks'
 import { TaskInput }          from '../components'
 
 const AddTasks = ({ addTask, auth }) => {
@@ -23,12 +23,9 @@ AddTasks.propTypes = {
 
 /* Exporting and connecting component
 ** to state and dispatcher
+** mapStateToProps, mapDispatchToProps
 */ 
 export default connect(
-  (state) => ({
-    auth: state.auth
-  }),
-  (dispatch) => ({
-    addTask: bindActionCreators(TaskActions.addTask, dispatch)
-  })
+  (state) => ({ auth: state.auth }),
+  (dispatch) => ({ addTask: bindActionCreators(addTask, dispatch) })
 )(AddTasks)
